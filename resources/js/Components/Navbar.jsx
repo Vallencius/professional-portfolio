@@ -1,5 +1,6 @@
 import { useState, useEffect,  React } from 'react';
 import { Link } from '@inertiajs/react';
+import Anchor from './Anchor';
 
 export default function Navbar(props) {
   const [menu, setMenu] = useState('hidden');
@@ -43,32 +44,16 @@ export default function Navbar(props) {
           <div className="items-center justify-between hidden md:opacity-100 opacity-0 w-full md:flex md:w-auto md:order-1 duration-500 transition-all" id="navbar-sticky">
             <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg lg:bg-transparent bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <li>
-                <Link href="/">
-                  <div className="block py-2 pl-3 pr-4 text-gray-700 rounded md:bg-transparent hover:bg-gray-100 md:hover:bg-transparent md:hover:text-coffee-700 lg:hover:text-coffee-900 lg:text-coffee-200 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" id="Home">
-                    Home
-                  </div>
-                </Link>
+                <Anchor text="Home" url="/"/>
               </li>
               <li>
-                <Link href="/about">
-                  <div className="block py-2 pl-3 pr-4 text-gray-700 rounded md:bg-transparent hover:bg-gray-100 md:hover:bg-transparent md:hover:text-coffee-700 lg:hover:text-coffee-900 lg:text-coffee-200 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" id="About">
-                    About
-                  </div>
-                </Link>
+                <Anchor text="About" url="/about"/>
               </li>
               <li>
-                <Link href="/projects">
-                  <div className="block py-2 pl-3 pr-4 text-gray-700 rounded md:bg-transparent hover:bg-gray-100 md:hover:bg-transparent md:hover:text-coffee-700 lg:hover:text-coffee-900 lg:text-coffee-200 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" id="Projects">
-                  Projects
-                  </div>
-                </Link>
+                <Anchor text="Projects" url="/projects"/>
               </li>
               <li>
-                <Link href="/contact">
-                  <div className="block py-2 pl-3 pr-4 text-gray-700 rounded md:bg-transparent hover:bg-gray-100 md:hover:bg-transparent md:hover:text-coffee-700 lg:hover:text-coffee-900 lg:text-coffee-200 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" id="Contact">
-                  Contact
-                  </div>
-                </Link>
+                <Anchor text="Contact" url="/contact"/>
               </li>
             </ul>
           </div>
