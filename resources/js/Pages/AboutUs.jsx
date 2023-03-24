@@ -5,7 +5,7 @@ import Navbar from '@/Components/Navbar';
 export default function AboutUs(props) {
     return (
         <>
-          <Head title="About Us"/>
+          <Head title="About"/>
           <Navbar
             image={props.images+"/logo-putih.png" }
             active="About"
