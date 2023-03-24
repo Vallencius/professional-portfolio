@@ -1,5 +1,4 @@
 import { useState, useEffect,  React } from 'react';
-import { Link } from '@inertiajs/react';
 import Anchor from './Anchor';
 
 export default function Navbar(props) {

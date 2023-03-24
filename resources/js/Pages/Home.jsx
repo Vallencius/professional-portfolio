@@ -25,8 +25,8 @@ export default function Home(props) {
           />
 
         <div className="overflow-x-hidden w-full">
-          <div className="w-full h-screen pt-20 dark:bg-gray-900 bg-coffee-50 flex flex-col items-center justify-center">
-            <div className="max-w-[75%] h-[75%]">
+          <div className="w-full h-screen dark:bg-gray-900 bg-coffee-50 flex flex-col items-center justify-center">
+            <div className="max-w-[75%] h-[75%] flex flex-col items-center justify-center">
               <AnimatePresence>
                 <motion.div
                   initial={{ opacity: 0, scale: 0.2, y: -100 }}
