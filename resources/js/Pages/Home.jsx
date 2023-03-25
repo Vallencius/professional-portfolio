@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import Footer from '@/Components/Footer';
 import Navbar from '@/Components/Navbar';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -24,63 +24,63 @@ export default function Home(props) {
             active="Home"
           />
 
-        <div className="overflow-x-hidden w-full">
-          <div className="w-full h-screen dark:bg-gray-900 bg-coffee-50 flex flex-col items-center justify-center">
-            <div className="max-w-[75%] h-[75%] flex flex-col items-center justify-center">
-              <AnimatePresence>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.2, y: -100 }}
-                  whileInView={{ opacity: 1, scale: 1, y:0 }}
-                  transition={{ ease: "easeOut", duration: 2 }}
-                  viewport={{ once: false, amount: 0.1 }}
-                >
-                  <img src={props.images+"/logo-hitam.svg"} className="max-w-full h-full m-auto"/>
-                  <h3 className="text-center mt-4">Web Developer &#8226; Android Developer &#8226; Cross-Platform</h3>
-                </motion.div>
-              </AnimatePresence>
+          <div className="overflow-x-hidden w-full dark:bg-gray-900 bg-gradient-to-b from-coffee-50 to-yellow-50">
+            <div className="w-full h-screen flex flex-col items-center justify-center">
+              <div className="max-w-[75%] h-[75%] flex flex-col items-center justify-center">
+                <AnimatePresence>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.5, y: -100 }}
+                    whileInView={{ opacity: 1, scale: 1, y:0 }}
+                    transition={{ ease: "easeOut", duration: 2 }}
+                    viewport={{ once: false, amount: 0.1 }}
+                  >
+                    <img src={props.images+"/logo-hitam.svg"} className="max-w-full h-full m-auto"/>
+                    <h3 className="text-center mt-4">Web Developer &#8226; Android Developer &#8226; Cross-Platform</h3>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
-          </div>
-          <div className="w-full h-screen pt-20 dark:bg-gray-900 bg-coffee-50 flex flex-col items-center justify-center">
-            <div className="flex flex-row items-center justify-center">
-              <AnimatePresence>
-                <motion.div
-                  className="w-2/3 p-12"
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, scale: 1, x:0 }}
-                  transition={{ ease: "easeOut", duration: 1 }}
-                  viewport={{ once: false, amount: 0.8 }}
-                >
-                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam, deleniti fugit earum dolorem autem corporis a tempora, natus tempore explicabo assumenda hic nostrum, fugiat eligendi necessitatibus voluptatibus sapiente vitae itaque?</p>
-                </motion.div>
-                <motion.div
-                  className="w-1/3"
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ ease: "easeOut", duration: 1 }}
-                  viewport={{ once: false, amount: 0.8 }}
-                >
-                  <img src={props.images+"/logo-hitam.svg"} className="p-12 m-auto"/>
-                </motion.div>
-              </AnimatePresence>
+            <div className="w-full h-screen flex flex-col items-center justify-center mb-12">
+              <div className="flex flex-col items-center justify-center">
+                <AnimatePresence>
+                  <div className="flex md:flex-row flex-col-reverse items-center justify-center">
+                    <motion.div
+                      className="md:w-2/3 md:p-12 px-12"
+                      initial={{ opacity: 0, x: 50 }}
+                      whileInView={{ opacity: 1, scale: 1, x:0 }}
+                      transition={{ ease: "easeOut", duration: 1 }}
+                      viewport={{ once: false, amount: 0.8 }}
+                    >
+                      <p className="text-center md:text-left">Student of Universitas Multimedia Nusantara, batch of 2020, majoring in informatics, a hard working and quite perfectionist student, able to solving computational logic and have a great problem solving ability. Have an initiative to improving skills and knowledge. Able to work in groups or as individuals who can be relied in all situations to improve your company’s quality.</p>
+                    </motion.div>
+                    <motion.div
+                      className="md:w-1/3"
+                      initial={{ opacity: 0, x: -50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ ease: "easeOut", duration: 1 }}
+                      viewport={{ once: true, amount: 0.8 }}
+                    >
+                      <img src={props.images+"/vallen.jpg"} className="p-12 m-auto"/>
+                    </motion.div>
+                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, zoom: 0 }}
+                    whileInView={{ opacity: 1, zoom: 1 }}
+                    transition={{ ease: "easeOut", duration: 1 }}
+                    viewport={{ once: false, amount: 0.8 }}
+                  >
+                    <Link href="/about">
+                      <div className="block py-2 pl-3 pr-4 text-coffee-100 bg-coffee-900 rounded p-8 hover:bg-coffee-100 hover:text-coffee-800 hover:border hover:border-coffee-800 dark:border-gray-700" id={props.text}>
+                        Know more about Me!
+                      </div>
+                    </Link>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
+            <Footer />
           </div>
-          <div className="w-full h-screen pt-20 dark:bg-gray-900 bg-coffee-50 flex flex-col items-center justify-center">
-            <div className="max-w-[75%] h-[75%]">
-              <AnimatePresence>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ ease: "easeOut", duration: 2 }}
-                >
-                  <img src={props.images+"/logo-hitam.svg"} className="max-w-full h-full m-auto"/>
-                  <h3 className="text-center mt-4">Web Developer &#8226; Android Developer &#8226; Cross-Platform</h3>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-        </div>
           
-          <Footer />
         </>
     );
 }
