@@ -25,7 +25,9 @@ export default function Contact(props) {
           <div className="w-full h-screen dark:bg-gray-900 bg-coffee-50">
             INI Contact
           </div>
-          <Footer />
+          <Footer 
+            image={props.images+"/logo-hitam.svg" }
+          />
         </>
     );
 }

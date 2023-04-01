@@ -4,18 +4,19 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\ProjectTechnology;
+use App\Models\ProjectImages;
 
-class ProjectTechnologySeeder extends Seeder
+class ProjectImagesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        ProjectTechnology::create([
+        ProjectImages::create([
             'id_project' => 1,
-            'id_technology' => 1
+            'name' => '',
+            'image' => ''
         ]);
     }
 }
