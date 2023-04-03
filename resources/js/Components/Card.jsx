@@ -20,7 +20,7 @@ export default function Card(props) {
           initial={{ opacity: 0 }}
           whileHover={{
             opacity: 1,
-            transition: { duration: 1 },
+            transition: { duration: 0.7 },
           }}
         >
           <motion.div 

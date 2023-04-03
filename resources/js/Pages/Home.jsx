@@ -8,6 +8,7 @@ import About from './AboutUs';
 import Projects from './Projects';
 import Contact from './Contact';
 import Card from '@/Components/Card';
+import ContactEmail from '@/Components/ContactEmail';
 
 export default function Home(props) {
   const color = [
@@ -41,7 +42,7 @@ export default function Home(props) {
                 initial={{ opacity: 0, scale: 0.5, y: -100 }}
                 whileInView={{ opacity: 1, scale: 1, y:0 }}
                 transition={{ ease: "easeOut", duration: 2 }}
-                viewport={{ once: false, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.1 }}
               >
                 <img src={props.images+"/logo-hitam.svg"} className="max-w-full h-full m-auto"/>
                 <h3 className="text-center mt-4">Web Developer &#8226; Android Developer &#8226; Cross-Platform</h3>
@@ -76,7 +77,7 @@ export default function Home(props) {
                 initial={{ opacity: 0, zoom: 0 }}
                 whileInView={{ opacity: 1, zoom: 1 }}
                 transition={{ ease: "easeOut", duration: 1 }}
-                viewport={{ once: false, amount: 0.8 }}
+                viewport={{ once: true, amount: 0.8 }}
               >
                 <Link href="/about">
                   <div className="block py-2 pl-3 pr-4 text-coffee-100 bg-coffee-900 rounded p-8 hover:bg-coffee-100 hover:text-coffee-800 hover:border hover:border-coffee-800 dark:border-gray-700" id={props.text}>
@@ -97,23 +98,24 @@ export default function Home(props) {
               >
                 <h1 className="text-center text-4xl text-coffee-900 font-bold my-8">Recent Projects</h1>
               </motion.div>
-              {/* <motion.div
-                initial={{ opacity: 0, zoom: 0 }}
-                whileInView={{ opacity: 1, zoom: 1 }}
-                transition={{ ease: "easeOut", duration: 1 }}
-                viewport={{ once: true, amount: 0.8 }}
-              > */}
                 <div className="gap-8 columns-3 duration-500 transition-all space-y-4">
                   {props.recent_projects.map((project, i) => {
-                    return (<Card project_info={project} image={props.images+"/logo-hitam.svg" } color={color[i]} color_to={color[i]}/>)
+                    return (
+                      <motion.div
+                        initial={{ opacity: 0, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ ease: "easeOut", duration: 1 }}
+                        viewport={{ once: true, amount: 0.8 }}
+                      >
+                        <Card project_info={project} image={props.images+"/logo-hitam.svg" } color={color[i]} color_to={color[i]}/>
+                      </motion.div>)
                   })}
                 </div>
-              {/* </motion.div> */}
               <motion.div
                 initial={{ opacity: 0, zoom: 0 }}
                 whileInView={{ opacity: 1, zoom: 1 }}
                 transition={{ ease: "easeOut", duration: 1 }}
-                viewport={{ once: false, amount: 0.8 }}
+                viewport={{ once: true, amount: 0.8 }}
               >
                 <Link href="/projects">
                   <div className="block my-12 py-2 pl-3 pr-4 text-coffee-100 bg-coffee-900 rounded p-8 hover:bg-coffee-100 hover:text-coffee-800 hover:border hover:border-coffee-800 dark:border-gray-700" id={props.text}>
@@ -123,6 +125,7 @@ export default function Home(props) {
               </motion.div>
             </AnimatePresence>
         </div>
+        <ContactEmail />
         <Footer
           image={props.images+"/logo-hitam.svg" }
         />
