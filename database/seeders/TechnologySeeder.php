@@ -35,7 +35,7 @@ class TechnologySeeder extends Seeder
         
         Technology::create([
             'name' => 'Framer Motion',
-            'image' => 'Framer.png',
+            'image' => 'framer.png',
         ]);
 
         Technology::create([
@@ -45,52 +45,52 @@ class TechnologySeeder extends Seeder
 
         Technology::create([
             'name' => 'MySQL',
-            'image' => 'MySQL.svg',
+            'image' => 'mysql.svg',
         ]);
 
         Technology::create([
             'name' => 'RabbitMQ',
-            'image' => 'RabbitMQ.svg',
+            'image' => 'rabbitmq.svg',
         ]);
 
         Technology::create([
             'name' => 'HTML',
-            'image' => 'HTML.svg',
+            'image' => 'html.svg',
         ]);
         
         Technology::create([
             'name' => 'CSS',
-            'image' => 'CSS.svg',
+            'image' => 'css.svg',
         ]);
         
         Technology::create([
             'name' => 'JS',
-            'image' => 'JS.svg',
+            'image' => 'js.svg',
         ]);
         
         Technology::create([
             'name' => 'InertiaJS',
-            'image' => 'InertiaJS.png',
+            'image' => 'inertia.png',
         ]);
         
         Technology::create([
             'name' => 'Java',
-            'image' => 'Java.svg',
+            'image' => 'java.svg',
         ]);
         
         Technology::create([
             'name' => 'Firebase',
-            'image' => 'Firebase.svg',
+            'image' => 'firebase.svg',
         ]);
         
         Technology::create([
             'name' => 'Ionic',
-            'image' => 'Ionic.svg',
+            'image' => 'ionic.svg',
         ]);
         
         Technology::create([
             'name' => 'Bootstrap',
-            'image' => 'Bootstrap.svg',
+            'image' => 'bootstrap.png',
         ]);
     }
 }

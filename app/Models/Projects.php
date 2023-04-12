@@ -14,6 +14,11 @@ class Projects extends Model
         return $this->hasMany(ProjectImages::class, 'id_project');
     }
     
+    public function type()
+    {
+        return $this->belongsTo(ProjectType::class);
+    }
+    
     public function technologies()
     {
         return $this->belongsToMany(Technology::class, 'project_technologies', 'id_project', 'id_technology');

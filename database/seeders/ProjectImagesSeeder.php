@@ -123,5 +123,20 @@ class ProjectImagesSeeder extends Seeder
             'name' => 'Logo',
             'image' => 'Mentoring/logo_header.png'
         ]);
+        ProjectImages::create([
+            'id_project' => 11,
+            'name' => 'Logo',
+            'image' => 'Mentoring/logo_header.png'
+        ]);
+        ProjectImages::create([
+            'id_project' => 12,
+            'name' => 'Logo',
+            'image' => 'Mentoring/logo_header.png'
+        ]);
+        ProjectImages::create([
+            'id_project' => 13,
+            'name' => 'Logo',
+            'image' => 'Mentoring/logo_header.png'
+        ]);
     }
 }

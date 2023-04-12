@@ -28,7 +28,6 @@ export default function Projects(props) {
         <div className="mx-12">
           <div className="w-full flex flex-col items-center justify-center divide-y-4 space-y-4">
             {props.projects.map((project, i) => {
-              console.log(project.images[0].image);
               return (
                 <Project project_info={project} logo={props.logo} image={props.project_images+"/"+project.images[0].image}/>
               )

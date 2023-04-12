@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             AchievementSeeder::class,
             ExperienceSeeder::class,
             JobDescriptionSeeder::class,
+            ProjectTypeSeeder::class,
             ProjectsSeeder::class,
             ProjectImagesSeeder::class,
             ProjectTechnologySeeder::class,
