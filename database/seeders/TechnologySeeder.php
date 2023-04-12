@@ -15,27 +15,32 @@ class TechnologySeeder extends Seeder
     {
         Technology::create([
             'name' => 'PHP',
-            'image' => 'PHP.svg',
+            'image' => 'php.svg',
         ]);
 
         Technology::create([
             'name' => 'Laravel',
-            'image' => 'Laravel.svg',
+            'image' => 'laravel.svg',
         ]);
 
         Technology::create([
             'name' => 'React',
-            'image' => 'React.svg',
+            'image' => 'react.svg',
         ]);
 
         Technology::create([
             'name' => 'TailwindCSS',
-            'image' => 'TailwindCSS.svg',
+            'image' => 'tailwind.svg',
+        ]);
+        
+        Technology::create([
+            'name' => 'Framer Motion',
+            'image' => 'Framer.png',
         ]);
 
         Technology::create([
             'name' => 'MongoDB',
-            'image' => 'MongoDB.svg',
+            'image' => 'mongo.svg',
         ]);
 
         Technology::create([
@@ -46,6 +51,46 @@ class TechnologySeeder extends Seeder
         Technology::create([
             'name' => 'RabbitMQ',
             'image' => 'RabbitMQ.svg',
+        ]);
+
+        Technology::create([
+            'name' => 'HTML',
+            'image' => 'HTML.svg',
+        ]);
+        
+        Technology::create([
+            'name' => 'CSS',
+            'image' => 'CSS.svg',
+        ]);
+        
+        Technology::create([
+            'name' => 'JS',
+            'image' => 'JS.svg',
+        ]);
+        
+        Technology::create([
+            'name' => 'InertiaJS',
+            'image' => 'InertiaJS.png',
+        ]);
+        
+        Technology::create([
+            'name' => 'Java',
+            'image' => 'Java.svg',
+        ]);
+        
+        Technology::create([
+            'name' => 'Firebase',
+            'image' => 'Firebase.svg',
+        ]);
+        
+        Technology::create([
+            'name' => 'Ionic',
+            'image' => 'Ionic.svg',
+        ]);
+        
+        Technology::create([
+            'name' => 'Bootstrap',
+            'image' => 'Bootstrap.svg',
         ]);
     }
 }

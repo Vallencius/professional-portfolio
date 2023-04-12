@@ -15,6 +15,13 @@ class ExperienceSeeder extends Seeder
     public function run(): void
     {
         Experience::create([
+            'title' => 'ESTO Cup 2020',
+            'role' => 'Chief Comittee',
+            'start_date' => Carbon::parse('2019-12-01'),
+            'end_date' => Carbon::parse('2020-02-16'),
+        ]);
+
+        Experience::create([
             'title' => 'Mentoring UMN 2021',
             'role' => 'Admin',
             'start_date' => Carbon::parse('2021-03-01'),

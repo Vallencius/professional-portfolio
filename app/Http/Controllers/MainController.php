@@ -21,22 +21,30 @@ class MainController extends Controller
     public function about()
     {
         return Inertia::render('AboutUs', [
-            // 'images' => asset('images')
+            'images' => asset('images')
         ]);
     }
 
     public function projects()
     {
+        $projects = Projects::all();
+        foreach($projects as $project){
+            $project['images'] = $project->images;
+            $project['technologies'] = $project->technologies;
+        }
+
         return Inertia::render('Projects', [
-            // 'images' => asset('images'),
-            'projects' => Projects::all(),
+            'images' => asset('images'),
+            'logo' => asset('images/logo'),
+            'project_images' => asset('images/projects'),
+            'projects' => $projects,
         ]);
     }
 
     public function contact()
     {
         return Inertia::render('Contact', [
-            // 'images' => asset('images')
+            'images' => asset('images')
         ]);
     }
 
@@ -56,7 +64,6 @@ class MainController extends Controller
     public function sendEmail($data)
     {
         $details = [
-            'title' => 'UMN ECO 2022: REGISTRATION CONFIRMATION',
             'name' => $data['name'],
             'message' => $data['message'],
             'email' => $data['email']
