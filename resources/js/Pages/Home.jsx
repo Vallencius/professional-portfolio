@@ -50,7 +50,7 @@ export default function Home(props) {
             </AnimatePresence>
           </div>
         </div>
-        <div className="w-full h-screen flex flex-col items-center justify-center mb-12">
+        <div className="w-full min-h-screen flex flex-col items-center justify-center mb-12">
           <div className="flex flex-col items-center justify-center">
             <AnimatePresence>
               <div className="flex md:flex-row flex-col-reverse items-center justify-center">
@@ -59,7 +59,7 @@ export default function Home(props) {
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, scale: 1, x:0 }}
                   transition={{ ease: "easeOut", duration: 1 }}
-                  viewport={{ once: false, amount: 0.8 }}
+                  viewport={{ once: false, amount: 0.3 }}
                 >
                   <p className="text-center md:text-left">Student of Universitas Multimedia Nusantara, batch of 2020, majoring in informatics, a hard working and quite perfectionist student, able to solving computational logic and have a great problem solving ability. Have an initiative to improving skills and knowledge. Able to work in groups or as individuals who can be relied in all situations to improve your company’s quality.</p>
                 </motion.div>
@@ -80,50 +80,60 @@ export default function Home(props) {
                 viewport={{ once: true, amount: 0.8 }}
               >
                 <Link href="/about">
-                  <div className="block py-2 pl-3 pr-4 text-coffee-100 bg-coffee-900 rounded p-8 hover:bg-coffee-100 hover:text-coffee-800 hover:border hover:border-coffee-800 dark:border-gray-700" id={props.text}>
+                  <motion.div 
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="block py-2 pl-3 pr-4 mt-8 lg:mt-0 text-coffee-100 bg-coffee-900 rounded p-8 hover:bg-coffee-100 hover:text-coffee-800 hover:border hover:border-coffee-800 dark:border-gray-700"
+                    id={props.text}
+                  >
                     Know more about Me!
-                  </div>
+                  </motion.div>
                 </Link>
               </motion.div>
             </AnimatePresence>
           </div>
         </div>
         <div className="w-full flex flex-col items-center mb-12">
-            <AnimatePresence>
-              <motion.div
-                initial={{ opacity: 0, zoom: 0 }}
-                whileInView={{ opacity: 1, zoom: 1 }}
-                transition={{ ease: "easeOut", duration: 1 }}
-                viewport={{ once: true, amount: 0.8 }}
-              >
-                <h1 className="text-center text-4xl text-coffee-900 font-bold my-8">Recent Projects</h1>
-              </motion.div>
-                <div className="gap-8 columns-3 duration-500 transition-all space-y-4">
-                  {props.recent_projects.map((project, i) => {
-                    return (
-                      <motion.div
-                        initial={{ opacity: 0, y: 100 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ ease: "easeOut", duration: 1 }}
-                        viewport={{ once: true, amount: 0.8 }}
-                      >
-                        <Card project_info={project} image={props.images+"/logo-hitam.svg" } color={color[i]} color_to={color[i]}/>
-                      </motion.div>)
-                  })}
-                </div>
-              <motion.div
-                initial={{ opacity: 0, zoom: 0 }}
-                whileInView={{ opacity: 1, zoom: 1 }}
-                transition={{ ease: "easeOut", duration: 1 }}
-                viewport={{ once: true, amount: 0.8 }}
-              >
-                <Link href="/projects">
-                  <div className="block my-12 py-2 pl-3 pr-4 text-coffee-100 bg-coffee-900 rounded p-8 hover:bg-coffee-100 hover:text-coffee-800 hover:border hover:border-coffee-800 dark:border-gray-700" id={props.text}>
-                    See More...
-                  </div>
-                </Link>
-              </motion.div>
-            </AnimatePresence>
+          <AnimatePresence>
+            <motion.div
+              initial={{ opacity: 0, zoom: 0 }}
+              whileInView={{ opacity: 1, zoom: 1 }}
+              transition={{ ease: "easeOut", duration: 1 }}
+              viewport={{ once: true, amount: 0.8 }}
+            >
+              <h1 className="text-center text-4xl text-coffee-900 font-bold my-8">Recent Projects</h1>
+            </motion.div>
+              <div className="gap-8 columns-1 mx-4 lg:columns-3 duration-500 transition-all space-y-4">
+                {props.recent_projects.map((project, i) => {
+                  return (
+                    <motion.div
+                      initial={{ opacity: 0, y: 100 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ ease: "easeOut", duration: 1 }}
+                      viewport={{ once: true, amount: 0.8 }}
+                    >
+                      <Card project_info={project} image={props.images+"/logo-hitam.svg" } color={color[i]} color_to={color[i]}/>
+                    </motion.div>)
+                })}
+              </div>
+            <motion.div
+              initial={{ opacity: 0, zoom: 0 }}
+              whileInView={{ opacity: 1, zoom: 1 }}
+              transition={{ ease: "easeOut", duration: 1 }}
+              viewport={{ once: true, amount: 0.8 }}
+            >
+              <Link href="/projects">
+                <motion.div 
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="block my-12 py-2 pl-3 pr-4 text-coffee-100 bg-coffee-900 rounded p-8 hover:bg-coffee-100 hover:text-coffee-800 hover:border hover:border-coffee-800 dark:border-gray-700"
+                  id={props.text}
+                >
+                  See More...
+                </motion.div>
+              </Link>
+            </motion.div>
+          </AnimatePresence>
         </div>
         <ContactEmail />
         <Footer

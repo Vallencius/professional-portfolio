@@ -22,7 +22,7 @@ export default function AboutUs(props) {
             image={props.images+"/logo-putih.png" }
             active="About"
           />
-          <div className="w-full h-screen dark:bg-gray-900 bg-coffee-50">
+          <div className="w-full h-screen dark:bg-gray-900 bg-coffee-50 pt-20">
             INI ABOUT US
           </div>
           <Footer

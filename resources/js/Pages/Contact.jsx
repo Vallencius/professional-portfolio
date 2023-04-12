@@ -22,7 +22,7 @@ export default function Contact(props) {
             image={props.images+"/logo-putih.png" }
             active="Contact"
           />
-          <div className="w-full h-screen dark:bg-gray-900 bg-coffee-50">
+          <div className="w-full h-screen dark:bg-gray-900 bg-coffee-50 pt-20">
             INI Contact
           </div>
           <Footer 
