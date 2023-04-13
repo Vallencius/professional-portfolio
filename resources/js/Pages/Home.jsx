@@ -3,6 +3,7 @@ import Footer from '@/Components/Footer';
 import Navbar from '@/Components/Navbar';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 import About from './AboutUs';
 import Projects from './Projects';
@@ -44,7 +45,7 @@ export default function Home(props) {
                 transition={{ ease: "easeOut", duration: 2 }}
                 viewport={{ once: true, amount: 0.1 }}
               >
-                <img src={props.images+"/logo-hitam.svg"} className="max-w-full h-full m-auto"/>
+                <LazyLoadImage src={props.images+"/logo-hitam.svg"} className="max-w-full h-full m-auto"/>
                 <h3 className="text-center mt-4">Web Developer &#8226; Android Developer &#8226; Cross-Platform</h3>
               </motion.div>
             </AnimatePresence>
@@ -70,7 +71,7 @@ export default function Home(props) {
                   transition={{ ease: "easeOut", duration: 1 }}
                   viewport={{ once: true, amount: 0.8 }}
                 >
-                  <img src={props.images+"/vallen.jpg"} className="p-12 m-auto"/>
+                  <LazyLoadImage src={props.images+"/vallen.jpg"} className="p-12 m-auto"/>
                 </motion.div>
               </div>
               <motion.div
@@ -112,7 +113,7 @@ export default function Home(props) {
                       transition={{ ease: "easeOut", duration: 1 }}
                       viewport={{ once: true, amount: 0.8 }}
                     >
-                      <Card project_info={project} image={props.images+"/logo-hitam.svg" } color={color[i]} color_to={color[i]}/>
+                      <Card project_info={project} image={props.project_images+"/"+project.images[0].image} color={color[i]} color_to={color[i]}/>
                     </motion.div>)
                 })}
               </div>

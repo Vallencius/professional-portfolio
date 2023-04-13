@@ -106,37 +106,37 @@ class ProjectImagesSeeder extends Seeder
         ProjectImages::create([
             'id_project' => 7,
             'name' => 'Logo',
-            'image' => 'Mentoring/logo_header.png'
+            'image' => 'Tiket/tiket.svg'
         ]);
         ProjectImages::create([
             'id_project' => 8,
             'name' => 'Logo',
-            'image' => 'Mentoring/logo_header.png'
+            'image' => 'RentBow/rentbow.svg'
         ]);
         ProjectImages::create([
             'id_project' => 9,
             'name' => 'Logo',
-            'image' => 'Mentoring/logo_header.png'
+            'image' => 'TVONAIR/TVONAIR.png'
         ]);
         ProjectImages::create([
             'id_project' => 10,
             'name' => 'Logo',
-            'image' => 'Mentoring/logo_header.png'
+            'image' => 'Cassie/banner.jpg'
         ]);
         ProjectImages::create([
             'id_project' => 11,
             'name' => 'Logo',
-            'image' => 'Mentoring/logo_header.png'
+            'image' => 'HMIF/hmif.svg'
         ]);
         ProjectImages::create([
             'id_project' => 12,
             'name' => 'Logo',
-            'image' => 'Mentoring/logo_header.png'
+            'image' => 'IAK/iak-og.png'
         ]);
         ProjectImages::create([
             'id_project' => 13,
             'name' => 'Logo',
-            'image' => 'Mentoring/logo_header.png'
+            'image' => 'Commpress/commpress2022.svg'
         ]);
     }
 }

@@ -12,9 +12,15 @@ class MainController extends Controller
 {
     public function home()
     {
+        $recentProjects = Projects::orderBy('id', 'DESC')->limit(6)->get();
+        foreach($recentProjects as $project){
+            $project['images'] = $project->images;
+        }
+
         return Inertia::render('Home', [
             'images' => asset('images'),
-            'recent_projects' => Projects::orderBy('id', 'DESC')->limit(6)->get(),
+            'project_images' => asset('images/projects'),
+            'recent_projects' => $recentProjects,
         ]);
     }
     
