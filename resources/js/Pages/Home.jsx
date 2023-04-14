@@ -10,8 +10,19 @@ import Projects from './Projects';
 import Contact from './Contact';
 import Card from '@/Components/Card';
 import ContactEmail from '@/Components/ContactEmail';
+import { useEffect, useState } from 'react';
 
 export default function Home(props) {
+  const [svgFill, setSvgFill] = useState('none');
+  const [svgStroke, setSvgStroke] = useState('#000');
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSvgFill("#000");
+      setSvgStroke("none");
+    }, 5000);
+  }, []);
+
   const color = [
     'purple',
     'blue',
@@ -20,6 +31,33 @@ export default function Home(props) {
     'red',
     'green'
   ];
+
+  const pathVariants = {
+    hidden: {
+      pathLength: 0
+    },
+    visible: {
+      pathLength: 1,
+      transition: {
+        duration: 2,
+        ease: "easeInOut"
+      }
+    }
+  }
+
+  const pathVariantsLong = {
+    hidden: {
+      pathLength: 0
+    },
+    visible: {
+      pathLength: 1,
+      transition: {
+        ease: "easeInOut",
+        duration: 6,
+      }
+    }
+  }
+
   return (
     <>
       <BrowserRouter>
@@ -40,12 +78,49 @@ export default function Home(props) {
           <div className="max-w-[75%] h-[75%] flex flex-col items-center justify-center">
             <AnimatePresence>
               <motion.div
-                initial={{ opacity: 0, scale: 0.5, y: -100 }}
-                whileInView={{ opacity: 1, scale: 1, y:0 }}
-                transition={{ ease: "easeOut", duration: 2 }}
-                viewport={{ once: true, amount: 0.1 }}
+                // initial={{ opacity: 0, scale: 0.5, y: -100 }}
+                // whileInView={{ opacity: 1, scale: 1, y:0 }}
+                // transition={{ ease: "easeOut", duration: 2 }}
+                // viewport={{ once: true, amount: 0.1 }}
               >
-                <LazyLoadImage src={props.images+"/logo-hitam.svg"} className="max-w-full h-full m-auto"/>
+                {/* <LazyLoadImage src={props.images+"/logo-hitam.svg"} className="max-w-full h-full m-auto"/> */}
+                <div className="max-w-full h-full m-auto">
+                  <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                  width="50vw" viewBox="0 0 1364.000000 539.000000"
+                  preserveAspectRatio="xMidYMid meet">
+                    <motion.g transform="translate(0.000000,539.000000) scale(0.100000,-0.100000)"
+                    fill={svgFill} stroke={svgStroke} strokeWidth={100} strokeLinecap="rounded"
+                    variants={pathVariants}
+                    initial="hidden"
+                    animate="visible">
+                      <motion.path d="M6238 3488 l-3 -1731 -706 1724 -706 1724 -369 2 -369 3 -181 -473
+                      c-820 -2144 -1509 -3926 -1515 -3920 -3 5 -41 116 -84 248 -58 182 -829 2351
+                      -1434 4035 l-37 105 -368 3 -367 2 7 -22 c4 -13 342 -887 751 -1943 409 -1056
+                      853 -2200 985 -2543 l242 -622 377 0 377 0 16 43 c9 23 135 370 280 772 l265
+                      730 1074 3 1075 2 44 -112 c24 -62 158 -411 298 -775 l255 -663 1982 0 1983 0
+                      2 2009 3 2009 276 -411 c151 -227 756 -1131 1344 -2009 l1068 -1598 349 0 348
+                      0 0 2565 0 2565 -325 0 -325 0 0 -2012 0 -2011 -328 489 c-180 269 -787 1174
+                      -1347 2012 l-1019 1522 -348 0 -348 0 0 -2235 0 -2235 -1285 0 -1285 0 0 2240
+                      0 2240 -325 0 -325 0 -2 -1732z m-1678 797 c74 -225 187 -531 499 -1359 149
+                      -395 271 -722 271 -727 0 -5 -370 -9 -861 -9 -564 0 -860 3 -857 10 35 106
+                      885 2256 889 2252 4 -4 30 -79 59 -167z"
+                      variants={pathVariantsLong}
+                      initial="hidden"
+                      animate="visible"/>
+                      <motion.path d="M7850 3410 l0 -1810 710 0 710 0 0 275 0 275 -430 0 -430 0 0 515 0
+                      515 440 0 440 0 0 275 0 275 -430 0 -430 0 0 495 0 495 430 0 430 0 0 250 0
+                      250 -720 0 -720 0 0 -1810z"
+                      variants={pathVariants}
+                      initial="hidden"
+                      animate="visible"/>
+                      <motion.path d="M7070 3045 l0 -2165 1115 0 1115 0 0 285 0 285 -815 0 -815 0 0 1880
+                      0 1880 -300 0 -300 0 0 -2165z"
+                      variants={pathVariants}
+                      initial="hidden"
+                      animate="visible"/>
+                    </motion.g>
+                  </svg>
+                </div>
                 <h3 className="text-center mt-4">Web Developer &#8226; Android Developer &#8226; Cross-Platform</h3>
               </motion.div>
             </AnimatePresence>
