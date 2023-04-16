@@ -5,7 +5,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 export default function Card(props) {
   return (
     <div className={"group relative h-[35vw] lg:h-[11vw] w-screen lg:w-[33vw] max-w-sm shadow-lg bg-gradient-to-b from-transparent to-"+props.color+"-100 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 border border-gray-100"}>
-      <a href={"/projects/"+props.project_info.slug}>
+      <a href={"/project/"+props.project_info.slug}>
         <LazyLoadImage className="p-4 h-full m-auto z-0 group-hover:opacity-20" src={props.image } alt="" />
         
         <motion.div 

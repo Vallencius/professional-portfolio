@@ -31,22 +31,6 @@ class MainController extends Controller
         ]);
     }
 
-    public function projects()
-    {
-        $projects = Projects::all();
-        foreach($projects as $project){
-            $project['images'] = $project->images;
-            $project['technologies'] = $project->technologies;
-        }
-
-        return Inertia::render('Projects', [
-            'images' => asset('images'),
-            'logo' => asset('images/logo'),
-            'project_images' => asset('images/projects'),
-            'projects' => $projects,
-        ]);
-    }
-
     public function contact()
     {
         return Inertia::render('Contact', [

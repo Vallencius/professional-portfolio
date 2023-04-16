@@ -84,7 +84,7 @@ export default function Home(props) {
                 // viewport={{ once: true, amount: 0.1 }}
               >
                 {/* <LazyLoadImage src={props.images+"/logo-hitam.svg"} className="max-w-full h-full m-auto"/> */}
-                <div className="max-w-full h-full m-auto">
+                <div className="max-w-full h-full m-auto flex justify-center">
                   <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                   width="50vw" viewBox="0 0 1364.000000 539.000000"
                   preserveAspectRatio="xMidYMid meet">
