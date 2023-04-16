@@ -27,6 +27,7 @@ export default function ProjectDetail(props) {
         active="Projects"
       />
       <div className="w-full dark:bg-gray-900 bg-coffee-50 py-20">
+        <a className="hidden lg:block absolute top-24 left-8 bg-coffee-600 rounded-full text-white px-4 py-2" href="/projects"><i class="fa fa-arrow-left mr-2" aria-hidden="true"></i>BACK</a>
         <div className="mx-12">
           <h1 className="text-center text-4xl text-coffee-900 font-bold my-8">{props.project.title}</h1>
           <LazyLoadImage className="mx-auto w-full h-auto lg:h-80 lg:w-auto" src={props.project_images+"/"+props.project.images[0].image}/>

@@ -230,7 +230,7 @@ class ProjectImagesSeeder extends Seeder
         ]);
         ProjectImages::create([
             'id_project' => 5,
-            'name' => 'About Menti=oring Page',
+            'name' => 'About Mentoring Page',
             'image' => 'Mentoring/Picture3.png'
         ]);
         ProjectImages::create([
@@ -265,32 +265,32 @@ class ProjectImagesSeeder extends Seeder
         ]);
         ProjectImages::create([
             'id_project' => 6,
-            'name' => 'Logo',
+            'name' => 'Home Page',
             'image' => 'PortfolioWeb/Picture1.png'
         ]);
         ProjectImages::create([
             'id_project' => 6,
-            'name' => 'Logo',
+            'name' => 'About Me Page',
             'image' => 'PortfolioWeb/Picture2.png'
         ]);
         ProjectImages::create([
             'id_project' => 6,
-            'name' => 'Logo',
+            'name' => 'Main Screen Page',
             'image' => 'PortfolioWeb/Picture3.png'
         ]);
         ProjectImages::create([
             'id_project' => 6,
-            'name' => 'Logo',
+            'name' => 'Modal Information',
             'image' => 'PortfolioWeb/Picture4.png'
         ]);
         ProjectImages::create([
             'id_project' => 6,
-            'name' => 'Logo',
+            'name' => 'Portfolio Page',
             'image' => 'PortfolioWeb/Picture5.png'
         ]);
         ProjectImages::create([
             'id_project' => 6,
-            'name' => 'Logo',
+            'name' => 'Medal Portfolio Detail',
             'image' => 'PortfolioWeb/Picture6.png'
         ]);
         ProjectImages::create([

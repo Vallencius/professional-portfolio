@@ -23,7 +23,7 @@ export default function AboutUs(props) {
             active="About"
           />
           <div className="w-full h-screen dark:bg-gray-900 bg-coffee-50 pt-20">
-            INI ABOUT US
+            <h1 className="text-center text-4xl text-coffee-900 font-bold my-8">About</h1>
           </div>
           <Footer
             image={props.images+"/logo-hitam.svg" }

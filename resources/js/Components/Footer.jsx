@@ -25,6 +25,7 @@ export default function Footer(props) {
           <div className="space-x-4 w-full md:w-1/3 m-auto text-center">
             <a href="http://www.instragram.com/vallnxs.gvr"><i className="fa fa-instagram text-4xl"></i></a>
             <a href="https://www.linkedin.com/in/vallencius-gavriel-alfredo-siswanto-8268b8228/"><i className="fa fa-linkedin text-4xl"></i></a>
+            <a href="https://github.com/Vallencius?tab=repositories"><i class="fa fa-github text-4xl"></i></a>
             <a href="https://vallencius.my.id"><i className="fa fa-globe text-4xl"></i></a>
           </div>
         </div>

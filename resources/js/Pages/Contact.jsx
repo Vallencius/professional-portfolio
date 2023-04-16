@@ -23,7 +23,7 @@ export default function Contact(props) {
             active="Contact"
           />
           <div className="w-full h-screen dark:bg-gray-900 bg-coffee-50 pt-20">
-            INI Contact
+            <h1 className="text-center text-4xl text-coffee-900 font-bold my-8">Contact Me</h1>
           </div>
           <Footer 
             image={props.images+"/logo-hitam.svg" }
