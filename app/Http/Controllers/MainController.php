@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Projects;
 use App\Mail\ContactMail;
+use App\Mail\SenderMail;
 
 class MainController extends Controller
 {
@@ -47,6 +48,7 @@ class MainController extends Controller
         ]);
 
         $this->sendEmail($ValidReq);
+        $this->sendEmailToSender($ValidReq);
 
         return redirect("/");
     }
@@ -59,5 +61,15 @@ class MainController extends Controller
             'email' => $data['email']
         ];
         Mail::to('vallenciussiswanto@gmail.com')->send(new ContactMail($details));
+    }
+
+    public function sendEmailToSender($data)
+    {
+        $details = [
+            'name' => $data['name'],
+            'message' => $data['message'],
+            'email' => $data['email']
+        ];
+        Mail::to($data['email'])->send(new SenderMail($details));
     }
 }
