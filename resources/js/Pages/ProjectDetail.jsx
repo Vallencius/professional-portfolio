@@ -25,7 +25,7 @@ export default function ProjectDetail(props) {
         <div className="mx-12">
           <h1 className="text-center text-4xl text-coffee-900 font-bold my-8">{props.project.title}</h1>
           <LazyLoadImage className="mx-auto w-1/2 h-auto lg:h-80 lg:w-auto" src={props.project_images+"/"+props.project.images[0].image}/>
-          <p className="my-4 text-center lg:text-left">Visit on: <a className="underline" href={props.project.link}>{props.project.link}</a></p>
+          <p className="my-4 text-center lg:text-left">Visit on: <a className="underline" target="_blank" href={props.project.link}>{props.project.link}</a></p>
           <p className="my-4 text-center lg:text-left">
             <p className="hidden lg:inline">Project Type: </p>
             <a 

@@ -63,7 +63,7 @@ class ProjectsSeeder extends Seeder
             'description' => 'Web Game Portfolio is a project to showcasing my past and current projects. I make it as a interactive web, by using Javascript to make the website as a game. You can control the character to move around my world, and speaks to NPCs to get information about myself. If you go to my house, you can see my past web projects.',
             'type_id' => 1,
             'slug' => "gameportfolio",
-            'link' => "https://vallencius.my.id"
+            'link' => "https://game.vallencius.my.id"
         ]);
 
         Projects::create([
