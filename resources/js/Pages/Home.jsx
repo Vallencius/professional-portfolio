@@ -1,17 +1,12 @@
+import React, { useState, useEffect } from "react";
 import { Head, Link } from '@inertiajs/react';
 import Footer from '@/Components/Footer';
 import Navbar from '@/Components/Navbar';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
-import About from './AboutUs';
-import Projects from './Projects';
-import Contact from './Contact';
-import Commision from './Commision';
 import Card from '@/Components/Card';
 import ContactEmail from '@/Components/ContactEmail';
-import { useEffect, useState } from 'react';
 
 export default function Home(props) {
   const [svgFill, setSvgFill] = useState('none');
@@ -61,14 +56,6 @@ export default function Home(props) {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/about" element={<About /> } />
-          <Route path="/projects" element={<Projects /> } />
-          <Route path="/contact" element={<Contact /> } />
-              <Route path="/commision" element={<Commision /> } />
-        </Routes>
-      </BrowserRouter>
       <Head title="Home"/>
       <Navbar
         image={props.images+"/logo-putih.png" }

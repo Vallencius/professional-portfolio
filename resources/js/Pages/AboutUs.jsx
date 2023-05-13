@@ -1,26 +1,13 @@
+import React from "react";
 import { Head } from '@inertiajs/react';
 import Footer from '@/Components/Footer';
 import Navbar from '@/Components/Navbar';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
-import Home from './Home';
-import Contact from './Contact';
-import Projects from './Projects';
-import Commision from './Commision';
 
 export default function AboutUs(props) {
     return (
         <>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Home /> } />
-              <Route path="/projects" element={<Projects /> } />
-              <Route path="/contact" element={<Contact /> } />
-              <Route path="/commision" element={<Commision /> } />
-            </Routes>
-          </BrowserRouter>
           <Head title="About"/>
           <Navbar
             image={props.images+"/logo-putih.png" }
