@@ -77,13 +77,13 @@ export default function Projects(props) {
         image={props.images+"/logo-putih.png" }
         active="Projects"
       />
-      <div className="min-h-screen w-full dark:bg-gray-900 bg-coffee-50 pt-20">
+      <div className="min-h-screen w-full bg-coffee-50 pt-20 pb-12">
         <h1 className="text-center text-4xl text-coffee-900 font-bold my-8">My Projects</h1>
         <div className="mx-12">
           <motion.div 
             whileHover={{ scale: 1.1 }} 
             whileTap={{ scale: 1 }} 
-            className="mb-8 w-fit hover:cursor-pointer bg-gradient-to-r from-blue-200 to-blue-sky-200 hover:bg-gradient-to-l hover:from-blue-200 hover:to-blue-sky-200 active:ring-4 active:outline-none active:ring-blue-200 dark:active:ring-blue-sky-700 rounded-full py-2 px-4"
+            className="mb-8 w-fit hover:cursor-pointer bg-gradient-to-r from-blue-200 to-blue-sky-200 hover:bg-gradient-to-l hover:from-blue-200 hover:to-blue-sky-200 active:ring-4 active:outline-none active:ring-blue-200 rounded-full py-2 px-4"
             onClick={() => toggleFilter()}
           >
             <img src={props.images+"/filter.svg"} className="h-4 inline mr-2"/>Filter

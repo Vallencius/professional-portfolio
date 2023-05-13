@@ -8,6 +8,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import About from './AboutUs';
 import Projects from './Projects';
 import Contact from './Contact';
+import Commision from './Commision';
 import Card from '@/Components/Card';
 import ContactEmail from '@/Components/ContactEmail';
 import { useEffect, useState } from 'react';
@@ -65,6 +66,7 @@ export default function Home(props) {
           <Route path="/about" element={<About /> } />
           <Route path="/projects" element={<Projects /> } />
           <Route path="/contact" element={<Contact /> } />
+              <Route path="/commision" element={<Commision /> } />
         </Routes>
       </BrowserRouter>
       <Head title="Home"/>
@@ -73,7 +75,7 @@ export default function Home(props) {
         active="Home"
       />
 
-      <div className="overflow-x-hidden w-full dark:bg-gray-900 bg-gradient-to-b from-coffee-50 to-yellow-50">
+      <div className="overflow-x-hidden w-full bg-gradient-to-b from-coffee-50 to-yellow-50">
         <div className="w-full h-screen flex flex-col items-center justify-center">
           <div className="max-w-[75%] h-[75%] flex flex-col items-center justify-center">
             <AnimatePresence>
@@ -149,23 +151,23 @@ export default function Home(props) {
                   <LazyLoadImage src={props.images+"/vallen.jpg"} className="p-12 m-auto"/>
                 </motion.div>
               </div>
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, zoom: 0 }}
                 whileInView={{ opacity: 1, zoom: 1 }}
                 transition={{ ease: "easeOut", duration: 1 }}
                 viewport={{ once: true, amount: 0.8 }}
               >
-                <Link href="/about">
+                <Link href="/about" disabled>
                   <motion.div 
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="block py-2 pl-3 pr-4 mt-8 lg:mt-0 text-coffee-100 bg-coffee-900 rounded p-8 hover:bg-coffee-100 hover:text-coffee-800 hover:border hover:border-coffee-800 dark:border-gray-700"
+                    className="block py-2 pl-3 pr-4 mt-8 lg:mt-0 text-coffee-100 bg-coffee-900 rounded p-8 hover:bg-coffee-100 hover:text-coffee-800 hover:border hover:border-coffee-800"
                     id={props.text}
                   >
                     Know more about Me!
                   </motion.div>
                 </Link>
-              </motion.div>
+              </motion.div> */}
             </AnimatePresence>
           </div>
         </div>
@@ -202,7 +204,7 @@ export default function Home(props) {
                 <motion.div 
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="block my-12 py-2 pl-3 pr-4 text-coffee-100 bg-coffee-900 rounded p-8 hover:bg-coffee-100 hover:text-coffee-800 hover:border hover:border-coffee-800 dark:border-gray-700"
+                  className="block my-12 py-2 pl-3 pr-4 text-coffee-100 bg-coffee-900 rounded p-8 hover:bg-coffee-100 hover:text-coffee-800 hover:border hover:border-coffee-800"
                   id={props.text}
                 >
                   See More...

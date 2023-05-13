@@ -32,6 +32,13 @@ class MainController extends Controller
         ]);
     }
 
+    public function commision()
+    {
+        return Inertia::render('Commision', [
+            'images' => asset('images')
+        ]);
+    }
+
     public function contact()
     {
         return Inertia::render('Contact', [

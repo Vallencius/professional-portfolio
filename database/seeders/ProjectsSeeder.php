@@ -60,7 +60,7 @@ class ProjectsSeeder extends Seeder
 
         Projects::create([
             'title' => 'Web Game Portfolio',
-            'description' => 'Web Game Portfolio is a project',
+            'description' => 'Web Game Portfolio is a project to showcasing my past and current projects. I make it as a interactive web, by using Javascript to make the website as a game. You can control the character to move around my world, and speaks to NPCs to get information about myself. If you go to my house, you can see my past web projects.',
             'type_id' => 1,
             'slug' => "gameportfolio",
             'link' => "https://vallencius.my.id"
@@ -68,23 +68,31 @@ class ProjectsSeeder extends Seeder
 
         Projects::create([
             'title' => 'Tiket (Titip Paket)',
-            'description' => 'Tiket is a project',
+            'description' => 'Tiket is my university project, where me and my team use Ionic-React to make a web app that can work on android and iOS too. The project main idea is to digitalize package storaging when people go online shopping, especially when people who live in apartments or dormitories. In Indonesia, the package will usually being held by the security, then when the customer want to pick it up, the security needs to find the package first. When we live in apartments or dormitory, there are many packages, so the security will take several minutes to  find the correct package. The package number is written in a book, so it is become more difficult to find the correct number. With Tiket, the security can simply input the data of the package, as well as some pictures of it. So when a customer want to take the package, the security can search it automatically, and we can notify the customer that the package is already arived on the security.',
             'type_id' => 3,
             'slug' => "tiket",
-            'link' => "https://vallencius.my.id"
+            'link' => "https://play.google.com/store/apps/details?id=io.ionic.tiket.kelompok1&hl=en"
         ]);
 
         Projects::create([
             'title' => 'RentBow',
-            'description' => 'RentBow is a project',
+            'description' => 'RentBow is my university project, where we use Java to make an android application. This app is used to rent public facility such as sports gym, music studio, or co-working space. In Indonesia, to rent a place, we use traditional method. We should go to the place and speak to the administrator to schedule a rent. By using RentBow, customer can easily rent public facilities from anywhere, and the owner can easily manage the administration automatically.',
             'type_id' => 2,
             'slug' => "rentbow",
-            'link' => "https://vallencius.my.id"
+            'link' => "https://play.google.com/store/apps/details?id=id.ac.umn.uasmap&hl=en"
+        ]);
+
+        Projects::create([
+            'title' => 'RentBow Partner',
+            'description' => "RentBow Partner is a mobile application for RentBow admin's to customize their public facilities open hours, accept payment for renting, and much more. This app is used to rent public facility such as sports gym, music studio, or co-working space. In Indonesia, to rent a place, we use traditional method. We should go to the place and speak to the administrator to schedule a rent. By using RentBow, customer can easily rent public facilities from anywhere, and the owner can easily manage the administration automatically.",
+            'type_id' => 2,
+            'slug' => "rentbowpartner",
+            'link' => "https://play.google.com/store/apps/details?id=id.ac.umn.uasmap22_admind&hl=en"
         ]);
 
         Projects::create([
             'title' => 'TVONAIR 8.0',
-            'description' => 'TVONAIR is a project',
+            'description' => "TVONAIR is UMN TV's birthday event. We make a website to share information about the event. Through the website, we also can register for the event. It also make the administration team store and manage registrant data easily.",
             'type_id' => 1,
             'slug' => "tvonair",
             'link' => "https://tvonair.umn.ac.id"
@@ -92,7 +100,7 @@ class ProjectsSeeder extends Seeder
 
         Projects::create([
             'title' => 'Cassiere Seiruvie',
-            'description' => 'Web Cassiere Seiruvie is a project',
+            'description' => 'Cassiere Seiruvie Website is my private project to showcase who is Cassiere Seiruvie. Cassiere Seiruvie or usually called Cassie, is a virtual youtuber (vtuber) from an Indonesian agency, AOI ID. This website is used to introduce Cassie to national and global audience.',
             'type_id' => 1,
             'slug' => "cassiere",
             'link' => "https://cassiere-seiruvie.my.id"
@@ -100,7 +108,7 @@ class ProjectsSeeder extends Seeder
 
         Projects::create([
             'title' => 'HMIF UMN Gen XIII',
-            'description' => 'HMIF is a project',
+            'description' => 'HMIF is an oragnization in Multimedia Nusantara University, that accomodate UMN Informatics students. This website is used as an official publication site, that contains many information about UMN Informatics major and their work programs.',
             'type_id' => 1,
             'slug' => "hmif",
             'link' => "https://hmif.umn.ac.id"
@@ -108,7 +116,7 @@ class ProjectsSeeder extends Seeder
 
         Projects::create([
             'title' => 'IAK Upload Excel Postpaid',
-            'description' => 'IAK is a project',
+            'description' => 'IAK is my internship company. In this company, i make Upload Excel feature, where our client can make a massive transaction by simply upload an excel file contains detail of the transaction.',
             'type_id' => 1,
             'slug' => "iak",
             'link' => "https://iak.id"
@@ -116,10 +124,10 @@ class ProjectsSeeder extends Seeder
 
         Projects::create([
             'title' => 'Commpress 2023',
-            'description' => 'Commpress 2023 is a project',
+            'description' => 'Commpress 2023 is UMN Journalistic major event. This website is used as a recruitment site, and contain official information about the event.',
             'type_id' => 1,
             'slug' => "commpress",
-            'link' => "https://hmif.umn.ac.id"
+            'link' => "https://commpress.umn.ac.id"
         ]);
     }
 }

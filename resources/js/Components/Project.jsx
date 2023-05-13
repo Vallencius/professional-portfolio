@@ -19,9 +19,9 @@ export default function Project(props) {
         >
           <p 
             className={
-              props.project_info.type.name == "Website" && "w-fit bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 rounded-full py-2 px-4" || 
-              props.project_info.type.name == "Cross Platform Application" && "w-fit bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 rounded-full py-2 px-4" ||
-              props.project_info.type.name == "Android Application" && "w-fit bg-gradient-to-r from-blue-200 via-blue-300 to-purple-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-100 dark:focus:ring-blue-400 rounded-full py-2 px-4"
+              props.project_info.type.name == "Website" && "w-fit bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 rounded-full py-2 px-4" || 
+              props.project_info.type.name == "Cross Platform Application" && "w-fit bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 rounded-full py-2 px-4" ||
+              props.project_info.type.name == "Android Application" && "w-fit bg-gradient-to-r from-blue-200 via-blue-300 to-purple-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-100 rounded-full py-2 px-4"
             }
           >
             {props.project_info.type.name}

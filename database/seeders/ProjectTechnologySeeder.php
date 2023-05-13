@@ -163,114 +163,122 @@ class ProjectTechnologySeeder extends Seeder
         ]);
         ProjectTechnology::create([
             'id_project' => 9,
+            'id_technology' => 13
+        ]);
+        ProjectTechnology::create([
+            'id_project' => 9,
+            'id_technology' => 14
+        ]);
+        ProjectTechnology::create([
+            'id_project' => 10,
             'id_technology' => 1
         ]);
         ProjectTechnology::create([
-            'id_project' => 9,
+            'id_project' => 10,
             'id_technology' => 2
         ]);
         ProjectTechnology::create([
-            'id_project' => 9,
+            'id_project' => 10,
             'id_technology' => 7
         ]);
         ProjectTechnology::create([
-            'id_project' => 9,
+            'id_project' => 10,
             'id_technology' => 10
         ]);
         ProjectTechnology::create([
-            'id_project' => 9,
+            'id_project' => 10,
             'id_technology' => 11
         ]);
         ProjectTechnology::create([
-            'id_project' => 9,
+            'id_project' => 10,
             'id_technology' => 16
         ]);
         ProjectTechnology::create([
-            'id_project' => 10,
+            'id_project' => 11,
             'id_technology' => 1
         ]);
         ProjectTechnology::create([
-            'id_project' => 10,
+            'id_project' => 11,
             'id_technology' => 2
         ]);
         ProjectTechnology::create([
-            'id_project' => 10,
+            'id_project' => 11,
             'id_technology' => 3
         ]);
         ProjectTechnology::create([
-            'id_project' => 10,
+            'id_project' => 11,
             'id_technology' => 4
         ]);
         ProjectTechnology::create([
-            'id_project' => 10,
+            'id_project' => 11,
             'id_technology' => 5
         ]);
         ProjectTechnology::create([
-            'id_project' => 10,
+            'id_project' => 11,
             'id_technology' => 12
         ]);
         ProjectTechnology::create([
-            'id_project' => 11,
+            'id_project' => 12,
             'id_technology' => 1
         ]);
         ProjectTechnology::create([
-            'id_project' => 11,
+            'id_project' => 12,
             'id_technology' => 2
         ]);
         ProjectTechnology::create([
-            'id_project' => 11,
+            'id_project' => 12,
             'id_technology' => 3
         ]);
         ProjectTechnology::create([
-            'id_project' => 11,
+            'id_project' => 12,
             'id_technology' => 4
         ]);
         ProjectTechnology::create([
-            'id_project' => 11,
+            'id_project' => 12,
             'id_technology' => 7
         ]);
         ProjectTechnology::create([
-            'id_project' => 11,
+            'id_project' => 12,
             'id_technology' => 12
         ]);
         ProjectTechnology::create([
-            'id_project' => 12,
+            'id_project' => 13,
             'id_technology' => 1
         ]);
         ProjectTechnology::create([
-            'id_project' => 12,
+            'id_project' => 13,
             'id_technology' => 2
         ]);
         ProjectTechnology::create([
-            'id_project' => 12,
+            'id_project' => 13,
             'id_technology' => 6
         ]);
         ProjectTechnology::create([
-            'id_project' => 12,
+            'id_project' => 13,
             'id_technology' => 7
         ]);
         ProjectTechnology::create([
-            'id_project' => 12,
+            'id_project' => 13,
             'id_technology' => 8
         ]);
         ProjectTechnology::create([
-            'id_project' => 13,
+            'id_project' => 14,
             'id_technology' => 1
         ]);
         ProjectTechnology::create([
-            'id_project' => 13,
+            'id_project' => 14,
             'id_technology' => 2
         ]);
         ProjectTechnology::create([
-            'id_project' => 13,
+            'id_project' => 14,
             'id_technology' => 7
         ]);
         ProjectTechnology::create([
-            'id_project' => 13,
+            'id_project' => 14,
             'id_technology' => 10
         ]);
         ProjectTechnology::create([
-            'id_project' => 13,
+            'id_project' => 14,
             'id_technology' => 16
         ]);
     }

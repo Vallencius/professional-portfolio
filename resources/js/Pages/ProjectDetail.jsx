@@ -9,6 +9,7 @@ import Home from './Home';
 import About from './AboutUs';
 import Projects from './Projects';
 import Contact from './Contact';
+import Commision from './Commision';
 
 export default function ProjectDetail(props) {
   return (
@@ -19,6 +20,7 @@ export default function ProjectDetail(props) {
         <Route path="/about" element={<About /> } />
         <Route path="/projects" element={<Projects /> } />
         <Route path="/contact" element={<Contact /> } />
+        <Route path="/commision" element={<Commision /> } />
       </Routes>
     </BrowserRouter>
       <Head title={props.project.title}/>
@@ -26,19 +28,26 @@ export default function ProjectDetail(props) {
         image={props.images+"/logo-putih.png" }
         active="Projects"
       />
-      <div className="w-full dark:bg-gray-900 bg-coffee-50 py-20">
-        <a className="hidden lg:block absolute top-24 left-8 bg-coffee-600 rounded-full text-white px-4 py-2" href="/projects"><i class="fa fa-arrow-left mr-2" aria-hidden="true"></i>BACK</a>
+      <div className="w-full bg-coffee-50 py-20">
+        <motion.a 
+          whileHover={{ scale: 1.1 }} 
+          whileTap={{ scale: 0.9 }} 
+          className="hidden lg:block absolute top-24 left-8 bg-coffee-600 rounded-full text-white px-4 py-2" href="/projects"
+        >
+          <i class="fa fa-arrow-left mr-2" aria-hidden="true"></i>
+          BACK
+        </motion.a>
         <div className="mx-12">
           <h1 className="text-center text-4xl text-coffee-900 font-bold my-8">{props.project.title}</h1>
-          <LazyLoadImage className="mx-auto w-full h-auto lg:h-80 lg:w-auto" src={props.project_images+"/"+props.project.images[0].image}/>
+          <LazyLoadImage className="mx-auto w-1/2 h-auto lg:h-80 lg:w-auto" src={props.project_images+"/"+props.project.images[0].image}/>
           <p className="my-4 text-center lg:text-left">Visit on: <a className="underline" href={props.project.link}>{props.project.link}</a></p>
           <p className="my-4 text-center lg:text-left">
             <p className="hidden lg:inline">Project Type: </p>
             <a 
               className={
-                props.project.type.name == "Website" && "ml-2 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 rounded-full py-2 px-4" || 
-                props.project.type.name == "Cross Platform Application" && "ml-2 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 rounded-full py-2 px-4" ||
-                props.project.type.name == "Android Application" && "ml-2 bg-gradient-to-r from-blue-200 via-blue-300 to-purple-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-100 dark:focus:ring-blue-400 rounded-full py-2 px-4"
+                props.project.type.name == "Website" && "ml-2 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 rounded-full py-2 px-4" || 
+                props.project.type.name == "Cross Platform Application" && "ml-2 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 rounded-full py-2 px-4" ||
+                props.project.type.name == "Android Application" && "ml-2 bg-gradient-to-r from-blue-200 via-blue-300 to-purple-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-100 rounded-full py-2 px-4"
               }
               href={props.project.type.name}
             >
@@ -75,10 +84,10 @@ export default function ProjectDetail(props) {
                   >
                     <motion.div
                       whileHover={{ scale: 1.1 }}
-                      className="mb-8 w-full lg:w-1/2 mx-auto"
+                      className={`mb-8 lg:w-1/2 mx-auto`}
                     >
                       <li>{project_image.name}</li>
-                      <LazyLoadImage  src={props.project_images+"/"+project_image.image}/>
+                      <LazyLoadImage  src={props.project_images+"/"+project_image.image} className={`${props.project.type !== 1 ? "h-64 lg:h-auto lg:w-1/2 mx-auto" : "w-full"}`} />
                     </motion.div>
                   </motion.div>
                 )

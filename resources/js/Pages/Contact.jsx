@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './Home';
 import About from './AboutUs';
 import Projects from './Projects';
+import Commision from './Commision';
 
 export default function Contact(props) {
     return (
@@ -15,6 +16,7 @@ export default function Contact(props) {
               <Route path="/" element={<Home /> } />
               <Route path="/about" element={<About /> } />
               <Route path="/projects" element={<Projects /> } />
+              <Route path="/commision" element={<Commision /> } />
             </Routes>
           </BrowserRouter>
           <Head title="Contact"/>
@@ -22,7 +24,7 @@ export default function Contact(props) {
             image={props.images+"/logo-putih.png" }
             active="Contact"
           />
-          <div className="w-full h-screen dark:bg-gray-900 bg-coffee-50 pt-20">
+          <div className="w-full h-screen bg-coffee-50 pt-20">
             <h1 className="text-center text-4xl text-coffee-900 font-bold my-8">Contact Me</h1>
           </div>
           <Footer 

@@ -7,19 +7,19 @@ export default function Footer(props) {
         <div className="w-full md:min-h-full min-h-[90vh] bg-coffee-tan flex flex-col md:flex-row md:divide-x-4 divide-coffee-900">
           <img src={props.image} className="w-full md:w-1/3 p-12"/>
           <div className="items-center justify-between duration-500 transition-all m-auto" id="navbar-sticky">
-            <ul className="flex flex-row p-4 mt-4 rounded-lg bg-transparent md:flex-col md:space-y-2 md:mt-0 md:text-md md:font-medium md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="flex flex-row p-4 mt-4 rounded-lg bg-transparent md:flex-col md:space-y-2 md:mt-0 md:text-md md:font-medium md:border-0">
               <li>
                 <Anchor text="Home" url="/" type="footer"/>
               </li>
-              <li>
+              {/* <li>
                 <Anchor text="About" url="/about" type="footer"/>
-              </li>
+              </li> */}
               <li>
                 <Anchor text="Projects" url="/projects" type="footer"/>
               </li>
-              <li>
+              {/* <li>
                 <Anchor text="Contact" url="/contact" type="footer"/>
-              </li>
+              </li> */}
             </ul>
           </div>
           <div className="space-x-4 w-full md:w-1/3 m-auto text-center">

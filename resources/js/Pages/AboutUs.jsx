@@ -8,6 +8,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import Home from './Home';
 import Contact from './Contact';
 import Projects from './Projects';
+import Commision from './Commision';
 
 export default function AboutUs(props) {
     return (
@@ -17,6 +18,7 @@ export default function AboutUs(props) {
               <Route path="/" element={<Home /> } />
               <Route path="/projects" element={<Projects /> } />
               <Route path="/contact" element={<Contact /> } />
+              <Route path="/commision" element={<Commision /> } />
             </Routes>
           </BrowserRouter>
           <Head title="About"/>
@@ -24,7 +26,7 @@ export default function AboutUs(props) {
             image={props.images+"/logo-putih.png" }
             active="About"
           />
-          <div className="w-full dark:bg-gray-900 bg-coffee-50 pt-20">
+          <div className="w-full bg-coffee-50 pt-20">
             <motion.h1 
               initial={{ opacity: 0, scale: 0.5, y: -100 }}
               whileInView={{ opacity: 1, scale: 1, y:0 }}

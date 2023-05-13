@@ -21,6 +21,7 @@ Route::get('/about', [MainController::class, 'about'])->name('about');
 Route::get('/projects', [ProjectsController::class, 'projects'])->name('projects');
 Route::post('/projects', [ProjectsController::class, 'projectsFilter'])->name('projects.filter');
 Route::get('/project/{slug}', [ProjectsController::class, 'projectDetail'])->name('projectDetail');
+Route::get('/commision', [MainController::class, 'commision'])->name('commision');
 Route::get('/contact', [MainController::class, 'contact'])->name('contact');
 
 Route::post('/email', [MainController::class, 'email'])->name('email');
