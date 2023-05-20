@@ -65,7 +65,7 @@ export default function ContactEmail(props) {
         <AnimatePresence>
           <div className="w-full flex flex-col items-center justify-center p-8 bg-coffee-400">
             <h1 className="text-center text-3xl">CONTACT ME</h1>
-            <form action="/email" method="POST" className="w-[90%] flex flex-col items-center justify-center" enctype="multipart/form-data" id="form-email">
+            <form action="/email" method="POST" className="w-[90%] flex flex-col items-center justify-center" encType="multipart/form-data" id="form-email">
               <input type="hidden" name="_token" value={csrf_tokens} />
               <motion.div
                 className="w-full"
@@ -74,7 +74,7 @@ export default function ContactEmail(props) {
                 transition={{ ease: "easeOut", duration: 1 }}
                 viewport={{ once: false, amount: 0.8 }}
               >
-                <label for="name" className="text-left">Name: </label><br/>
+                <label htmlFor="name" className="text-left">Name: </label><br/>
                 <input type="text" className="border-coffee-500 bg-coffee-50 w-full"
                     id="name" name="name" placeholder="Enter your name..." />
               </motion.div>
@@ -85,7 +85,7 @@ export default function ContactEmail(props) {
                 transition={{ ease: "easeOut", duration: 1 }}
                 viewport={{ once: false, amount: 0.8 }}
               >
-                <label for="email" className="text-left">Email: </label><br/>
+                <label htmlFor="email" className="text-left">Email: </label><br/>
                 <input type="email" className="border-coffee-500 bg-coffee-50 w-full"
                     id="email" name="email" placeholder="Enter Email Address..." />
               </motion.div>
@@ -96,7 +96,7 @@ export default function ContactEmail(props) {
                 transition={{ ease: "easeOut", duration: 1 }}
                 viewport={{ once: false, amount: 0.8 }}
               >
-                <label for="message" className="">Message: </label><br/>
+                <label htmlFor="message" className="">Message: </label><br/>
                 <textarea type="text" className="border-coffee-500 bg-coffee-50 w-full"
                     id="message" name="message" placeholder="Enter your message..." rows="3"></textarea>
               </motion.div>

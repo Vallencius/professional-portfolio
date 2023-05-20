@@ -91,27 +91,27 @@ export default function AboutUs(props) {
               <div>
                 EXPERIENCE
               </div>
-              <div class="modal-detail-skills modal-detail-title">
-                <p class="modal-title">Skills</p>
-                <div class="modal-subtitle">
-                  <div class="skill-title">
-                    <p class="title-in-skill">Software Skills</p>
-                      <p class="subtitle-in-skill">Microsoft Word - Excelent</p>
-                      <p class="subtitle-in-skill">Microsoft PowerPoint - Excelent</p>
-                      <p class="subtitle-in-skill">Microsoft Excel - Intermediate</p>
-                    <p class="title-in-skill">Language Skills</p>
-                      <p class="subtitle-in-skill">English (Writing - fluent, Speaking - Intermediate)</p>
-                      <p class="subtitle-in-skill">Bahasa Indonesia (Writing - fluent, Speaking - Fluent)</p>
-                    <p class="title-in-skill">Coding Skills</p>
-                      <p class="subtitle-in-skill">HTML, CSS, JS - Intermediate</p>
-                      <p class="subtitle-in-skill">C, C++ - Intermediate</p>
-                      <p class="subtitle-in-skill">Java - Intermediate</p>
-                      <p class="subtitle-in-skill">PHP - Intermediate</p>
-                      <p class="subtitle-in-skill">MySQL - Intermediate</p>
-                    <p class="title-in-skill">Framework Skills</p>
-                      <p class="subtitle-in-skill">Laravel - Intermediate</p>
-                      <p class="subtitle-in-skill">Bootstrap - Intermediate</p>
-                      <p class="subtitle-in-skill">JQuery - Intermediate</p>
+              <div className="modal-detail-skills modal-detail-title">
+                <p className="modal-title">Skills</p>
+                <div className="modal-subtitle">
+                  <div className="skill-title">
+                    <p className="title-in-skill">Software Skills</p>
+                      <p className="subtitle-in-skill">Microsoft Word - Excelent</p>
+                      <p className="subtitle-in-skill">Microsoft PowerPoint - Excelent</p>
+                      <p className="subtitle-in-skill">Microsoft Excel - Intermediate</p>
+                    <p className="title-in-skill">Language Skills</p>
+                      <p className="subtitle-in-skill">English (Writing - fluent, Speaking - Intermediate)</p>
+                      <p className="subtitle-in-skill">Bahasa Indonesia (Writing - fluent, Speaking - Fluent)</p>
+                    <p className="title-in-skill">Coding Skills</p>
+                      <p className="subtitle-in-skill">HTML, CSS, JS - Intermediate</p>
+                      <p className="subtitle-in-skill">C, C++ - Intermediate</p>
+                      <p className="subtitle-in-skill">Java - Intermediate</p>
+                      <p className="subtitle-in-skill">PHP - Intermediate</p>
+                      <p className="subtitle-in-skill">MySQL - Intermediate</p>
+                    <p className="title-in-skill">Framework Skills</p>
+                      <p className="subtitle-in-skill">Laravel - Intermediate</p>
+                      <p className="subtitle-in-skill">Bootstrap - Intermediate</p>
+                      <p className="subtitle-in-skill">JQuery - Intermediate</p>
                   </div>
                 </div>
               </div>

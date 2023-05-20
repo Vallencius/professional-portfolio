@@ -1,5 +1,6 @@
 import { useState, useEffect,  React } from 'react';
 import Anchor from './Anchor';
+import { Link } from '@inertiajs/react';
 
 export default function Navbar(props) {
   const [menu, setMenu] = useState('hidden');
@@ -32,7 +33,7 @@ export default function Navbar(props) {
     <>
       <div className="w-full bg-coffee-500 px-2 sm:px-4 py-2.5 fixed z-20 top-0 left-0 border-b border-gray-200">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
-          <img src={props.image} className="h-6 mr-3 sm:h-9"/>
+          <Link href="/"><img src={props.image} className="h-6 mr-3 sm:h-9"/></Link>
           <div className="flex md:order-2">
             {/* <button type="button" className="text-white bg-coffee-700 hover:bg-coffee-800 focus:ring-4 focus:outline-none focus:ring-coffee-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-coffee-600 dark:hover:bg-coffee-700 dark:focus:ring-coffee-800">Get started</button> */}
             <button onClick={() => openNavbar()} type="button" className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200">
@@ -51,10 +52,10 @@ export default function Navbar(props) {
               <li>
                 <Anchor text="Projects" url="/projects"/>
               </li>
-              {/* <li>
+              <li>
                 <Anchor text="Commision" url="/commision"/>
               </li>
-              <li>
+              {/* <li>
                 <Anchor text="Contact" url="/contact"/>
               </li> */}
             </ul>

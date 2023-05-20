@@ -19,7 +19,7 @@ export default function ProjectDetail(props) {
           whileTap={{ scale: 0.9 }} 
           className="hidden lg:block absolute top-24 left-8 bg-coffee-600 rounded-full text-white px-4 py-2" href="/projects"
         >
-          <i class="fa fa-arrow-left mr-2" aria-hidden="true"></i>
+          <i className="fa fa-arrow-left mr-2" aria-hidden="true"></i>
           BACK
         </motion.a>
         <div className="mx-12">

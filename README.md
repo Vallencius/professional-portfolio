@@ -21,3 +21,6 @@ Vallencius Gavriel's professional portfolio website. Specialize in web developme
 ✨ Minor Changes:
 - Filter Project
 - Contact Me on website
+### Version 1.1.0
+🌟 Main Changes:
+- Commision Page

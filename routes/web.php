@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\CommisionController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,4 @@ Route::get('/commision', [MainController::class, 'commision'])->name('commision'
 Route::get('/contact', [MainController::class, 'contact'])->name('contact');
 
 Route::post('/email', [MainController::class, 'email'])->name('email');
+Route::post('/order', [CommisionController::class, 'order'])->name('order');
