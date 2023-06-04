@@ -249,7 +249,8 @@ export default function Commision(props) {
                 <td>Rp 250.000,00</td>
               </tr>
             </tbody>
-          </table>          <div className="w-1/3 hidden lg:inline">
+          </table>          
+          <div className="lg:w-1/3 inline mt-4">
             <LazyLoadImage src={props.images+"/projects/ECO/Picture7.png"}></LazyLoadImage>
           </div>
         </div>
@@ -273,9 +274,9 @@ export default function Commision(props) {
               </tr>
             </tbody>
           </table>
-          <div className="w-full hidden lg:flex flex-row items-center justify-center space-x-8 my-4">
-            <LazyLoadImage src={props.images+"/commision/design.png"} className="w-1/3"></LazyLoadImage>
-            <LazyLoadImage src={props.images+"/commision/AOS.gif"} className="w-1/3"></LazyLoadImage>
+          <div className="w-full flex flex-col lg:flex-row items-center justify-center space-y-4 lg:space-x-8 my-4">
+            <LazyLoadImage src={props.images+"/commision/design.png"} className="lg:w-1/3"></LazyLoadImage>
+            <LazyLoadImage src={props.images+"/commision/AOS.gif"} className="lg:w-1/3"></LazyLoadImage>
           </div>
         </div>
         <p className="text-center text-xl font-bold mb-4 mt-8 md:my-8">🛠️ Special Features 🛠️</p>
@@ -302,9 +303,9 @@ export default function Commision(props) {
               </tr>
             </tbody>
           </table>
-          <div className="w-full hidden lg:flex flex-row items-center justify-center space-x-8 my-4">
-            <LazyLoadImage src={props.images+"/commision/l2d.gif"} className="w-1/3"></LazyLoadImage>
-            <LazyLoadImage src={props.images+"/commision/filter.png"} className="w-1/3"></LazyLoadImage>
+          <div className="w-full flex flex-col lg:flex-row items-center justify-center space-y-4 lg:space-x-8 my-4">
+            <LazyLoadImage src={props.images+"/commision/l2d.gif"} className="lg:w-1/3"></LazyLoadImage>
+            <LazyLoadImage src={props.images+"/commision/filter.png"} className="lg:w-1/3"></LazyLoadImage>
           </div>
         </div>
         <div className="w-5/6 lg:w-7/12 font-bold text-center bg-coffee-300 p-4 rounded-xl mx-auto mt-8">

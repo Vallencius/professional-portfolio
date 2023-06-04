@@ -25,5 +25,17 @@ Route::get('/project/{slug}', [ProjectsController::class, 'projectDetail'])->nam
 Route::get('/commision', [MainController::class, 'commision'])->name('commision');
 Route::get('/contact', [MainController::class, 'contact'])->name('contact');
 
+Route::get('/instagram', function(){
+  return redirect()->away('https://instagram.com/vallnxs.gvr');
+})->name('instagram');
+
+Route::get('/twitter', function(){
+  return redirect()->away('https://twitter.com/Vallenciusx');
+})->name('twitter');
+
 Route::post('/email', [MainController::class, 'email'])->name('email');
 Route::post('/order', [CommisionController::class, 'order'])->name('order');
+
+Route::any('{url}', function(){
+  return redirect('/');
+})->where('url', '.*');
