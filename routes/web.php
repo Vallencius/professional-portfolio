@@ -33,6 +33,26 @@ Route::get('/twitter', function(){
   return redirect()->away('https://twitter.com/Vallenciusx');
 })->name('twitter');
 
+Route::get('/youtube', function(){
+  return redirect()->away('https://youtube.com/@VallenciusGavrielCh');
+})->name('youtube');
+
+Route::get('/tiktok', function(){
+  return redirect()->away('https://tiktok.com/@vallenciusgavrielch');
+})->name('tiktok');
+
+Route::get('/discord', function(){
+  return redirect()->away('https://discord.gg/fZmSYAaKGa');
+})->name('discord');
+
+Route::get('/github', function(){
+  return redirect()->away('https://github.com/Vallencius');
+})->name('github');
+
+Route::get('/linkedin', function(){
+  return redirect()->away('https://www.linkedin.com/in/vallencius-gavriel-alfredo-siswanto-8268b8228/');
+})->name('linkedin');
+
 Route::post('/email', [MainController::class, 'email'])->name('email');
 Route::post('/order', [CommisionController::class, 'order'])->name('order');
 
