@@ -6,7 +6,6 @@ use App\Http\Controllers\CommisionController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,11 +58,7 @@ Route::post('/email', [MainController::class, 'email'])->name('email');
 Route::post('/order', [CommisionController::class, 'order'])->name('order');
 
 Route::prefix('admin')->group(function () {
-  Route::middleware('guest:sanctum')->get('/login', [LoginController::class, 'loginPage'])->name('admin.login');
-  Route::middleware('auth:sanctum')->get('/test', function(){
-    dd(Auth::user());
-  })->name('admin.test');
-  Route::middleware('auth:sanctum')->get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
+  Route::get('/login', [LoginController::class, 'loginPage'])->name('admin.login');
 });
 
 Route::any('{url}', function(){

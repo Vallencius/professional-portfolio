@@ -23,8 +23,7 @@ export default function Login(props) {
     axios.post('/api/admin/login', data)
     .then(response => {
       if (response.data.status == STATUS_LOGIN_SUCCESS) {
-        const { token } = response.data;
-        document.cookie = `authToken=${token}; path=/;`;
+
       } else if (response.data.status == STATUS_LOGIN_FAILED) {
         setErrorMessage(response.data.message);
       }
