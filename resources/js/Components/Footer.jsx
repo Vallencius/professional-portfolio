@@ -20,9 +20,6 @@ export default function Footer(props) {
               <li>
                 <Anchor text="Commision" url="/commision" type="footer"/>
               </li>
-              <li>
-                <Anchor text="Admin Login" url="/admin/login" type="footer"/>
-              </li>
               {/* <li>
                 <Anchor text="Contact" url="/contact" type="footer"/>
               </li> */}

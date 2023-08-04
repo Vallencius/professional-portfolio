@@ -2,7 +2,6 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +14,6 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::prefix('admin')->group(function () {
-    Route::post('/login', [LoginController::class, 'login'])->name('admin.login.check');
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
 });

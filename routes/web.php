@@ -3,7 +3,6 @@
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\CommisionController;
-use App\Http\Controllers\LoginController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 
@@ -56,10 +55,6 @@ Route::get('/linkedin', function(){
 
 Route::post('/email', [MainController::class, 'email'])->name('email');
 Route::post('/order', [CommisionController::class, 'order'])->name('order');
-
-Route::prefix('admin')->group(function () {
-  Route::get('/login', [LoginController::class, 'loginPage'])->name('admin.login');
-});
 
 Route::any('{url}', function(){
   return redirect('/');
