@@ -16,5 +16,6 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::prefix('admin')->group(function () {
-    Route::post('/login', [LoginController::class, 'login'])->name('admin.login.check');
+    Route::middleware('guest')->post('/login', [LoginController::class, 'login'])->name('admin.login.check');
+    Route::middleware('auth')->get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
 });
