@@ -32,7 +32,10 @@ Route::get('/info', [MainController::class, 'info'])->name('info');
 Route::prefix('admin')->group(function () {
   Route::middleware('guest')->get('/login', [LoginController::class, 'loginPage'])->name('admin.login');
   
-  Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+  Route::middleware('guest')->post('/login/hit', [LoginController::class, 'login'])->name('admin.login.check');
+  Route::middleware('auth')->get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
+
+  Route::middleware('auth')->get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 });
 
 Route::get('/instagram', function(){

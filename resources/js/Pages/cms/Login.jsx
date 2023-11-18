@@ -21,7 +21,7 @@ export default function Login(props) {
 
   const onSubmit = async(data) => {
     axios.defaults.headers.common['X-CSRF-TOKEN'] = props.csrf;
-    axios.post('/api/admin/login', data)
+    axios.post('/admin/login/hit', data)
     .then(response => {
       if (response.data.status == STATUS_LOGIN_SUCCESS) {
         window.location.href = 'admin/dashboard';

@@ -1,4 +1,4 @@
-import {React, useEffect, useState} from "react";
+import {React, createContext, useContext, useState} from "react";
 import { Head } from '@inertiajs/react';
 import { motion } from "framer-motion";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -7,9 +7,13 @@ import Projects from "./Projects";
 import Technologies from "./Technologies";
 import ProjectTypes from "./ProjectTypes";
 
+const DataContext = createContext(null);
+
 export default function Dashboard(props) {
   const [subDiv, setSubDiv] = useState("Home");
   const [isExpanded, setIsExpanded] = useState(false);
+
+  var projects = props;
 
   function menuToggle() {
     if (isExpanded) {
@@ -26,7 +30,7 @@ export default function Dashboard(props) {
           <div className={`p-4 ${isExpanded ? "" : "flex flex-row items-center justify-center"}`}>
             <button onClick={menuToggle} className="text-2xl font-bold px-auto"> <i className={`fa fa-bars text-2xl mr-4 ${isExpanded ? "ml-2" : "ml-4"}`} aria-hidden="true"></i>{isExpanded && <span> Admin Page</span>}</button>
           </div>
-          <nav className="p-4">
+          <nav className="p-4 cursor-pointer">
             <ul className="space-y-2">
               <li>
                 <a onClick={() => setSubDiv("Home")} className={`block text-coffee-900 hover:text-coffee-600 hover:bg-coffee-300 px-4 ${isExpanded ? "py-2" : "py-4"} rounded-lg`}><i className={`fa fa-home ${isExpanded ? "mr-4" : "flex flex-row items-center justify-center"}`} aria-hidden="true"></i>{isExpanded && <span>Home</span>}</a>
@@ -41,17 +45,19 @@ export default function Dashboard(props) {
                 <a onClick={() => setSubDiv("Project Types")} className={`block text-coffee-900 hover:text-coffee-600 hover:bg-coffee-300 px-4 ${isExpanded ? "py-2" : "py-4"} rounded-lg`}><i className={`fa fa-cogs ${isExpanded ? "mr-4" : "flex flex-row items-center justify-center"}`} aria-hidden="true"></i>{isExpanded && <span>Project Types</span>}</a>
               </li>
               <li>
-                <a href="/api/admin/logout" className={`block text-coffee-900 hover:text-coffee-600 hover:bg-coffee-300 px-4 ${isExpanded ? "py-2" : "py-4"} rounded-lg`}><i className={`fa fa-sign-out ${isExpanded ? "mr-4" : "flex flex-row items-center justify-center"}`} aria-hidden="true"></i>{isExpanded && <span>Logout</span>}</a>
+                <a href="/admin/logout" className={`block text-coffee-900 hover:text-coffee-600 hover:bg-coffee-300 px-4 ${isExpanded ? "py-2" : "py-4"} rounded-lg`}><i className={`fa fa-sign-out ${isExpanded ? "mr-4" : "flex flex-row items-center justify-center"}`} aria-hidden="true"></i>{isExpanded && <span>Logout</span>}</a>
               </li>
             </ul>
           </nav>
         </div>
-        <div className={`${isExpanded ? "ml-64" : "ml-24"} overflow-auto transition-all duration-200 pt-8`}>
+        <div className={`${isExpanded ? "ml-64" : "ml-24"} overflow-auto transition-all duration-200`}>
           {subDiv == "Home" &&
             <Home/>
           }
           {subDiv == "Projects" &&
-            <Projects/>
+            <DataContext.Provider value={projects}>
+              <Projects/>
+            </DataContext.Provider>
           }
           {subDiv == "Technologies" &&
             <Technologies/>
@@ -63,4 +69,8 @@ export default function Dashboard(props) {
       </div>
     </>
   );
+}
+
+export function useData() {
+  return useContext(DataContext);
 }

@@ -23,14 +23,8 @@ class LoginController extends Controller
         $credentials = $request->all();
         
         if (Auth::attempt($credentials)) {
-            // $user = Auth::user();
-            // $token = $user->createToken('authToken')->plainTextToken;
-
-            //regenerate session
             $request->session()->regenerate();
-
-            //redirect route dashboard
-            // return redirect()->intended('/admin/dashboard');
+            
             return response()->json(['message' => 'Login berhasil!', 'status' => LoginService::STATUS_LOGIN_SUCCESS], 200);
         }
 
