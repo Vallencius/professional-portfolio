@@ -35,6 +35,6 @@ class LoginController extends Controller
     {
         Auth::guard('web')->logout();
 
-        return response()->json(['message' => 'Logged out successfully', 'status' => LoginService::STATUS_LOGIN_SUCCESS], 200);
+        return redirect('/');
     }
 }
