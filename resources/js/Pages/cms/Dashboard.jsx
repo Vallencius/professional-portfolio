@@ -13,8 +13,6 @@ export default function Dashboard(props) {
   const [subDiv, setSubDiv] = useState("Home");
   const [isExpanded, setIsExpanded] = useState(false);
 
-  var projects = props;
-
   function menuToggle() {
     if (isExpanded) {
       setIsExpanded(false);
@@ -33,16 +31,16 @@ export default function Dashboard(props) {
           <nav className="p-4 cursor-pointer">
             <ul className="space-y-2">
               <li>
-                <a onClick={() => setSubDiv("Home")} className={`block text-coffee-900 hover:text-coffee-600 hover:bg-coffee-300 px-4 ${isExpanded ? "py-2" : "py-4"} rounded-lg`}><i className={`fa fa-home ${isExpanded ? "mr-4" : "flex flex-row items-center justify-center"}`} aria-hidden="true"></i>{isExpanded && <span>Home</span>}</a>
+                <a onClick={() => setSubDiv("Home")} className={`block hover:text-coffee-600 hover:bg-coffee-300 px-4 ${isExpanded ? "py-2" : "py-4"} ${subDiv === 'Home' ? 'bg-coffee-600 text-coffee-200' : 'text-coffee-900'} rounded-lg`}><i className={`fa fa-home ${isExpanded ? "mr-4" : "flex flex-row items-center justify-center"}`} aria-hidden="true"></i>{isExpanded && <span>Home</span>}</a>
               </li>
               <li>
-                <a onClick={() => setSubDiv("Projects")} className={`block text-coffee-900 hover:text-coffee-600 hover:bg-coffee-300 px-4 ${isExpanded ? "py-2" : "py-4"} rounded-lg`}><i className={`fa fa-briefcase ${isExpanded ? "mr-4" : "flex flex-row items-center justify-center"}`} aria-hidden="true"></i>{isExpanded && <span>Projects</span>}</a>
+                <a onClick={() => setSubDiv("Projects")} className={`block hover:text-coffee-600 hover:bg-coffee-300 px-4 ${isExpanded ? "py-2" : "py-4"} ${subDiv === 'Projects' ? 'bg-coffee-600 text-coffee-200' : 'text-coffee-900'} rounded-lg`}><i className={`fa fa-briefcase ${isExpanded ? "mr-4" : "flex flex-row items-center justify-center"}`} aria-hidden="true"></i>{isExpanded && <span>Projects</span>}</a>
               </li>
               <li>
-                <a onClick={() => setSubDiv("Technologies")} className={`block text-coffee-900 hover:text-coffee-600 hover:bg-coffee-300 px-4 ${isExpanded ? "py-2" : "py-4"} rounded-lg`}><i className={`fa fa-microchip ${isExpanded ? "mr-4" : "flex flex-row items-center justify-center"}`} aria-hidden="true"></i>{isExpanded && <span>Technologies</span>}</a>
+                <a onClick={() => setSubDiv("Technologies")} className={`block hover:text-coffee-600 hover:bg-coffee-300 px-4 ${isExpanded ? "py-2" : "py-4"} ${subDiv === 'Technologies' ? 'bg-coffee-600 text-coffee-200' : 'text-coffee-900'} rounded-lg`}><i className={`fa fa-microchip ${isExpanded ? "mr-4" : "flex flex-row items-center justify-center"}`} aria-hidden="true"></i>{isExpanded && <span>Technologies</span>}</a>
               </li>
               <li>
-                <a onClick={() => setSubDiv("Project Types")} className={`block text-coffee-900 hover:text-coffee-600 hover:bg-coffee-300 px-4 ${isExpanded ? "py-2" : "py-4"} rounded-lg`}><i className={`fa fa-cogs ${isExpanded ? "mr-4" : "flex flex-row items-center justify-center"}`} aria-hidden="true"></i>{isExpanded && <span>Project Types</span>}</a>
+                <a onClick={() => setSubDiv("Project Types")} className={`block hover:text-coffee-600 hover:bg-coffee-300 px-4 ${isExpanded ? "py-2" : "py-4"} ${subDiv === 'Project Types' ? 'bg-coffee-600 text-coffee-200' : 'text-coffee-900'} rounded-lg`}><i className={`fa fa-cogs ${isExpanded ? "mr-4" : "flex flex-row items-center justify-center"}`} aria-hidden="true"></i>{isExpanded && <span>Project Types</span>}</a>
               </li>
               <li>
                 <a href="/admin/logout" className={`block text-coffee-900 hover:text-coffee-600 hover:bg-coffee-300 px-4 ${isExpanded ? "py-2" : "py-4"} rounded-lg`}><i className={`fa fa-sign-out ${isExpanded ? "mr-4" : "flex flex-row items-center justify-center"}`} aria-hidden="true"></i>{isExpanded && <span>Logout</span>}</a>
@@ -55,15 +53,19 @@ export default function Dashboard(props) {
             <Home/>
           }
           {subDiv == "Projects" &&
-            <DataContext.Provider value={projects}>
+            <DataContext.Provider value={props}>
               <Projects/>
             </DataContext.Provider>
           }
           {subDiv == "Technologies" &&
-            <Technologies/>
+            <DataContext.Provider value={props}>
+              <Technologies/>
+            </DataContext.Provider>
           }
           {subDiv == "Project Types" &&
-            <ProjectTypes/>
+            <DataContext.Provider value={props}>
+              <ProjectTypes/>
+            </DataContext.Provider>
           }
         </div>
       </div>
