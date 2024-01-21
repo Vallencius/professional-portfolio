@@ -41,6 +41,9 @@ Route::prefix('admin')->group(function () {
     Route::middleware('auth')->get('/projects', [AdminController::class, 'getProjects'])->name('admin.getProjects');
     Route::middleware('auth')->get('/technologies', [AdminController::class, 'getTechnologies'])->name('admin.getTechnologies');
     Route::middleware('auth')->get('/projecttypes', [AdminController::class, 'getProjectTypes'])->name('admin.getProjectTypes');
+    
+    Route::middleware('auth')->get('/technologies/all', [AdminController::class, 'getAllTechnologies'])->name('admin.getAllTechnologies');
+    Route::middleware('auth')->get('/projecttypes/all', [AdminController::class, 'getAllProjectTypes'])->name('admin.getAllProjectTypes');
   });
   
   Route::prefix('add')->group(function () {

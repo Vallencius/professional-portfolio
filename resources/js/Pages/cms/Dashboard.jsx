@@ -11,7 +11,7 @@ const DataContext = createContext(null);
 
 export default function Dashboard(props) {
   const [subDiv, setSubDiv] = useState("Home");
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false); 
 
   function menuToggle() {
     if (isExpanded) {

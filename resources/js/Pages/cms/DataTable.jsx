@@ -1,5 +1,5 @@
 import { PencilIcon } from "@heroicons/react/24/solid";
-import { React, useEffect, useState } from "react";
+import { React, useState } from "react";
 import { useData } from './Dashboard';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import {
@@ -21,12 +21,12 @@ export function DataTable(props) {
         process('/admin/get/' + props.type);
     });
     const [addForm, setAddForm] = useState(false);
+    const [editForm, setEditForm] = useState(null);
 
     function process(url) {
         axios.get(url)
         .then(response => {
             setData(response.data);
-            console.log(response.data);
         })
         .catch(error => {
             console.log(error.message);
@@ -81,7 +81,7 @@ export function DataTable(props) {
                                         {
                                             props.type === 'projects' &&
                                             data.data.map(
-                                                ({ id, images, title, type, technologies, link }, index) => {
+                                                ({ id, images, title, description, slug, type, technologies, link }, index) => {
                                                     const isLast = index === data.data.length - 1;
                                                     const classes = isLast
                                                     ? "p-4"
@@ -91,13 +91,27 @@ export function DataTable(props) {
                                                         <tr key={id}>
                                                             <td className={classes}>
                                                                 <div className="flex items-center gap-1 justify-center">
-                                                                    <img src={propsData.images + '/projects/' + images[0].image} className="h-20" />      
+                                                                    <img src={propsData.images + '/projects/' + (images[0] ? images[0].image : 'no-image.jpg')} className="h-20" />      
                                                                 </div>
                                                             </td>
                                                             <td className={classes}>
                                                                 <div className="flex items-center gap-3">
                                                                     <div className="flex flex-col">
                                                                         <p>{title}</p>                                        
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td className={isLast ? "p-4 w-[1000px]" : 'p-4 border-b border-blue-gray-50 w-[1000px]'}>
+                                                                <div className="flex items-center gap-3">
+                                                                    <div className="flex flex-col">
+                                                                        <p>{description}</p>                                        
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td className={classes}>
+                                                                <div className="flex items-center gap-3">
+                                                                    <div className="flex flex-col">
+                                                                        <p>{slug}</p>                                        
                                                                     </div>
                                                                 </div>
                                                             </td>
@@ -138,7 +152,7 @@ export function DataTable(props) {
                                                             </td>
                                                             <td className={classes}>
                                                                 <Tooltip content="Edit User">
-                                                                    <IconButton variant="text" className="flex">
+                                                                    <IconButton variant="text" className="flex" onClick={() => {setEditForm({ id, images, title, description, slug, type, technologies, link })}}>
                                                                         <PencilIcon className="h-4 w-4 m-auto" />
                                                                     </IconButton>
                                                                 </Tooltip>
@@ -173,7 +187,7 @@ export function DataTable(props) {
                                                         </td>
                                                         <td className={classes}>
                                                             <Tooltip content="Edit User">
-                                                                <IconButton variant="text" className="flex">
+                                                                <IconButton variant="text" className="flex" onClick={() => {setEditForm({ id, image, name })}}>
                                                                     <PencilIcon className="h-4 w-4 m-auto" />
                                                                 </IconButton>
                                                             </Tooltip>
@@ -203,7 +217,7 @@ export function DataTable(props) {
                                                         </td>
                                                         <td className={classes}>
                                                             <Tooltip content="Edit User">
-                                                                <IconButton variant="text" className="flex">
+                                                                <IconButton variant="text" className="flex" onClick={() => {setEditForm({ id, name })}}>
                                                                     <PencilIcon className="h-4 w-4 m-auto" />
                                                                 </IconButton>
                                                             </Tooltip>
@@ -238,7 +252,11 @@ export function DataTable(props) {
                         </Card>
                         {
                             addForm && 
-                            <Form type="add" category={categoryMapping(props.type)} head={props.head} closeForm={() => setAddForm(false)}/>
+                            <Form type="add" category={categoryMapping(props.type)} head={props.head} closeForm={() => setAddForm(false)} refreshPage={() => process('/admin/get/' + props.type)} editData={null}/>
+                        }
+                        {
+                            editForm && 
+                            <Form type="edit" category={categoryMapping(props.type)} head={props.head} closeForm={() => setEditForm(null)} refreshPage={() => process('/admin/get/' + props.type)} editData={editForm}/>
                         }
                     </>
                 )
