@@ -24,3 +24,7 @@ Vallencius Gavriel's professional portfolio website. Specialize in web developme
 ### Version 1.1.0
 🌟 Main Changes:
 - Commision Page
+
+### Version 1.1.0a
+✨ Minor Changes:
+- Optimize SEO
