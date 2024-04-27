@@ -97,15 +97,20 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
 
     return (
         <>
+            <div class="fixed inset-0 transition-opacity">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
             <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[90vh]">
-                <button type="button" onClick={() => closeForm()} className="absolute top-4 right-8 bg-red-500 hover:bg-red-700 py-1 px-3 font-sans font-bold rounded-lg text-white hover:text-coffee-300">
-                    X
-                </button>
-                <div className="pt-4 h-full overflow-y-scroll flex flex-col items-center justify-center max-w-lg w-screen lg:w-[50vw] bg-coffee-200 border-2 border-coffee-600 rounded-lg">
+                <div className="absolute top-0 left-0 px-4 py-4 w-full flex flex-row justify-between bg-coffee-400 border-2 border-coffee-600 rounded-t-lg z-50">
+                    <Typography variant="h4" color="blue-gray" className="text-center">
+                        {type === 'add' ? 'Add' : 'Edit'} {category} 
+                    </Typography>
+                    <button type="button" onClick={() => closeForm()} className="bg-red-500 hover:bg-red-700 py-1 px-3 font-sans font-bold rounded-lg text-white hover:text-coffee-300">
+                        X
+                    </button>
+                </div>
+                <div className="pt-16 h-full overflow-y-scroll flex flex-col items-center justify-center max-w-lg w-screen lg:w-[50vw] bg-coffee-200 border-2 border-coffee-600 rounded-lg">
                     <Card color="transparent" shadow={false} className="h-full my-4">
-                        <Typography variant="h4" color="blue-gray" className="text-center">
-                            {type === 'add' ? 'Add' : 'Edit'} {category} 
-                        </Typography>
                         <form onSubmit={handleSubmit(process)} className="mt-4 mb-2 w-80 max-w-screen-lg sm:w-96">
                             <div className="mb-1 flex flex-col gap-4">
                                 {

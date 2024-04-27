@@ -176,6 +176,7 @@ export default function Home(props) {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ ease: "easeOut", duration: 1 }}
                       viewport={{ once: true, amount: 0.8 }}
+                      key={{ i }}
                     >
                       <Card project_info={project} image={props.project_images+"/"+project.images[0].image} color={color[i]} color_to={color[i]}/>
                     </motion.div>)
