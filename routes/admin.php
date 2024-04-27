@@ -22,13 +22,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/technologies/all', [AdminController::class, 'getAllTechnologies'])->name('admin.getAllTechnologies');
         Route::get('/projecttypes/all', [AdminController::class, 'getAllProjectTypes'])->name('admin.getAllProjectTypes');
 
-        Route::get('/images/{id}', [AdminController::class, 'getImages'])->name('admin.getImages');
+        Route::get('/projectimages/{id}', [AdminController::class, 'getImages'])->name('admin.getImages');
     });
 
     Route::prefix('add')->group(function () {
         Route::post('/projects', [AdminController::class, 'addProjects'])->name('admin.addProjects');
         Route::post('/technologies', [AdminController::class, 'addTechnologies'])->name('admin.addTechnologies');
         Route::post('/projecttypes', [AdminController::class, 'addProjectTypes'])->name('admin.addProjectTypes');
+        Route::post('/projectimages', [AdminController::class, 'addProjectImages'])->name('admin.addProjectImages');
     });
 
     Route::prefix('edit')->group(function () {

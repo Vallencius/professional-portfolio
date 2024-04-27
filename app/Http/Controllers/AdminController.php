@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Http\Requests\CMS\ProjectImagesRequest;
 use App\Http\Requests\CMS\ProjectTypeRequest;
 use App\Http\Requests\CMS\TechnologyRequest;
 use App\Models\Projects;
@@ -121,6 +122,29 @@ class AdminController extends Controller
         $service = new BaseApiService();
         
         return $service->success('Project Type Added!', $projectType);
+    }
+
+    public function addProjectImages(ProjectImagesRequest $request)
+    {
+        $idProject = $request->get('IDProject');
+        $file = $request->file('Image');
+        $service = new BaseApiService();
+        $project = Projects::where('id', $idProject)->first();
+
+        if ($request->hasFile('Image') && $request->file('Image')->isValid()) {
+            $originalName = $file->getClientOriginalName();
+            $filePath = $file->storeAs('projects/' . $project->slug, $originalName, 'public');
+
+            $projectImages = ProjectImages::create([
+                'id_project' => $project->id,
+                'name' => $request->get('Name'),
+                'image' => $project->slug . '/' . $originalName,
+            ]);
+            
+            return $service->success('Project Image Added!', [$projectImages]);
+        }
+        
+        return $service->error('Project Image Invalid!');
     }
     
     public function editProjects(Request $request)

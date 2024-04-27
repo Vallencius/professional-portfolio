@@ -19,11 +19,13 @@ export function DataTable(props) {
     const propsData = providerData.props; 
 
     const [data, setData] = useState(() => {
+        let url = '/admin/get/' + props.type;
+        
         if (props.type === 'projectimages') {
-            process('/admin/get/images/' + providerData.idProject.id);
-        } else {
-            process('/admin/get/' + props.type);
+            url += ('/' + providerData.idProject.id);
         }
+
+        process(url)
     });
 
     const [addForm, setAddForm] = useState(false);
@@ -326,11 +328,11 @@ export function DataTable(props) {
                         </Card>
                         {
                             addForm && 
-                            <Form type="add" category={categoryMapping(props.type)} head={props.head} closeForm={() => setAddForm(false)} refreshPage={() => process('/admin/get/' + props.type)} editData={null}/>
+                            <Form type="add" category={categoryMapping(props.type)} head={props.head} closeForm={() => setAddForm(false)} refreshPage={() => process('/admin/get/' + props.type + '/' + props.idProject)} editData={null} idProject={props.idProject ?? null}/>
                         }
                         {
                             editForm && 
-                            <Form type="edit" category={categoryMapping(props.type)} head={props.head} closeForm={() => setEditForm(null)} refreshPage={() => process('/admin/get/' + props.type)} editData={editForm}/>
+                            <Form type="edit" category={categoryMapping(props.type)} head={props.head} closeForm={() => setEditForm(null)} refreshPage={() => process('/admin/get/' + props.type)} editData={editForm} idProject={props.idProject ?? null}/>
                         }
                     </>
                 )

@@ -10,7 +10,7 @@ import {
     Typography,
   } from "@material-tailwind/react";
 
-export default function Form({type, category, head, closeForm, refreshPage, editData}) { 
+export default function Form({type, category, head, closeForm, refreshPage, editData, idProject = null}) { 
     const {
         register,
         handleSubmit,
@@ -77,6 +77,10 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
         }
         if (data.Technologies) {
             formData.append('Technologies', data.Technologies);
+        }
+        if (data.Image) {
+            formData.append('Image', data.Image[0]);
+            formData.append('IDProject', idProject);
         }
 
         axios.post(`${type}/${processCategory}`, formData, {
@@ -194,7 +198,24 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
                                                     }
                                                 </>
                                             )
-                                        } if (name === 'Logo' || name === 'Image') {
+                                        } if (name === 'Logo') {
+                                            return(
+                                                <>
+                                                    <Typography variant="h6" color="blue-gray" className="-mb-3">
+                                                        {name}
+                                                    </Typography>
+                                                    <Input
+                                                        className=" !border-t-blue-gray-200 focus:!border-t-gray-900 rounded-lg"
+                                                        type="file"
+                                                        {...register(name)}
+                                                    />
+                                                    {
+                                                        errorMessage && errorMessage[name] && 
+                                                        <small className="text-red-600 -mt-3">*{errorMessage[name][0]}</small>
+                                                    }
+                                                </>
+                                            )
+                                        } if (name === 'Image') {
                                             return(
                                                 <>
                                                     <Typography variant="h6" color="blue-gray" className="-mb-3">

@@ -11,7 +11,7 @@ export default function ProjectImages(props) {
       <Head title="Admin Projects"/>
       <div className="min-h-screen w-full transition-all duration-200 pt-8">
           <h1 className="text-3xl font-bold text-coffee-900 text-center">{providerData.idProject.title} Images</h1>
-          <DataTable head={["Image", "Name", "Action"]} type="projectimages"/>
+          <DataTable head={["Image", "Name", "Action"]} type="projectimages" idProject={providerData.idProject.id} />
       </div>
     </>
   );
