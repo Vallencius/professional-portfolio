@@ -16,6 +16,8 @@ use Services\BaseApiService;
 
 class AdminController extends Controller
 {
+    const PER_PAGE = 10;
+
     public function dashboard()
     {
         return Inertia::render('cms/Dashboard', [
@@ -25,17 +27,17 @@ class AdminController extends Controller
 
     public function getProjects()
     {
-        return Projects::with(["images", "type", "technologies"])->paginate(10);
+        return Projects::with(["images", "type", "technologies"])->paginate(self::PER_PAGE);
     }
 
     public function getTechnologies()
     {
-        return Technology::paginate(10);
+        return Technology::paginate(self::PER_PAGE);
     }
 
     public function getProjectTypes()
     {
-        return ProjectType::paginate(10);
+        return ProjectType::paginate(self::PER_PAGE);
     }
 
     public function getAllTechnologies()
@@ -46,6 +48,11 @@ class AdminController extends Controller
     public function getAllProjectTypes()
     {
         return ProjectType::get();
+    }
+    
+    public function getImages($id)
+    {
+        return ProjectImages::where('id_project', $id)->paginate(self::PER_PAGE);
     }
     
     public function addProjects(Request $request)

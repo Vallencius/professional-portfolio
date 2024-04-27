@@ -48,6 +48,8 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
             processCategory = 'technologies';
         } else if (category === 'Project Type') {
             processCategory = 'projecttypes';
+        } else if (category === 'Image') {
+            processCategory = 'projectimages';
         }
 
         const formData = new FormData();
@@ -178,7 +180,8 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
                                                                         <Checkbox 
                                                                             name="type" 
                                                                             label={name}  
-                                                                            value={index + 1}                                                                          {...register("Technologies")} 
+                                                                            value={index + 1}                                                                          
+                                                                            {...register("Technologies")} 
                                                                         />
                                                                     }
                                                                 </>
@@ -191,7 +194,7 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
                                                     }
                                                 </>
                                             )
-                                        } if (name === 'Logo') {
+                                        } if (name === 'Logo' || name === 'Image') {
                                             return(
                                                 <>
                                                     <Typography variant="h6" color="blue-gray" className="-mb-3">

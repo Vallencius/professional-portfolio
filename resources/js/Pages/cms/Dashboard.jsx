@@ -6,11 +6,13 @@ import Home from "./Home";
 import Projects from "./Projects";
 import Technologies from "./Technologies";
 import ProjectTypes from "./ProjectTypes";
+import ProjectImages from "./ProjectImages";
 
 const DataContext = createContext(null);
 
 export default function Dashboard(props) {
   const [subDiv, setSubDiv] = useState("Home");
+  const [idProject, setIdProject] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false); 
 
   function menuToggle() {
@@ -53,18 +55,23 @@ export default function Dashboard(props) {
             <Home/>
           }
           {subDiv == "Projects" &&
-            <DataContext.Provider value={props}>
+            <DataContext.Provider value={{ props, setIdProject, setSubDiv }}>
               <Projects/>
             </DataContext.Provider>
           }
           {subDiv == "Technologies" &&
-            <DataContext.Provider value={props}>
+            <DataContext.Provider value={{ props }}>
               <Technologies/>
             </DataContext.Provider>
           }
           {subDiv == "Project Types" &&
-            <DataContext.Provider value={props}>
+            <DataContext.Provider value={{ props }}>
               <ProjectTypes/>
+            </DataContext.Provider>
+          }
+          {subDiv == "Project Images" &&
+            <DataContext.Provider value={{ props, idProject }}>
+              <ProjectImages/>
             </DataContext.Provider>
           }
         </div>
