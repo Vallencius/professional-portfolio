@@ -97,8 +97,8 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
 
     return (
         <>
-            <div class="fixed inset-0 transition-opacity">
-                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            <div className="fixed inset-0 transition-opacity">
+                <div className="absolute inset-0 bg-gray-500 opacity-75"></div>
             </div>
             <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[90vh]">
                 <div className="absolute top-0 left-0 px-4 py-4 w-full flex flex-row justify-between bg-coffee-400 border-2 border-coffee-600 rounded-t-lg z-50">
