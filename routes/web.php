@@ -29,36 +29,6 @@ Route::get('/commision', [MainController::class, 'commision'])->name('commision'
 Route::get('/contact', [MainController::class, 'contact'])->name('contact');
 Route::get('/info', [MainController::class, 'info'])->name('info');
 
-Route::prefix('admin')->group(function () {
-  Route::middleware('guest')->get('/login', [LoginController::class, 'loginPage'])->name('admin.login');
-  
-  Route::middleware('guest')->post('/login/hit', [LoginController::class, 'login'])->name('admin.login.check');
-  Route::middleware('auth')->get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
-
-  Route::middleware('auth')->get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-  
-  Route::prefix('get')->group(function () {
-    Route::middleware('auth')->get('/projects', [AdminController::class, 'getProjects'])->name('admin.getProjects');
-    Route::middleware('auth')->get('/technologies', [AdminController::class, 'getTechnologies'])->name('admin.getTechnologies');
-    Route::middleware('auth')->get('/projecttypes', [AdminController::class, 'getProjectTypes'])->name('admin.getProjectTypes');
-    
-    Route::middleware('auth')->get('/technologies/all', [AdminController::class, 'getAllTechnologies'])->name('admin.getAllTechnologies');
-    Route::middleware('auth')->get('/projecttypes/all', [AdminController::class, 'getAllProjectTypes'])->name('admin.getAllProjectTypes');
-  });
-  
-  Route::prefix('add')->group(function () {
-    Route::middleware('auth')->post('/projects', [AdminController::class, 'addProjects'])->name('admin.addProjects');
-    Route::middleware('auth')->post('/technologies', [AdminController::class, 'addTechnologies'])->name('admin.addTechnologies');
-    Route::middleware('auth')->post('/projecttypes', [AdminController::class, 'addProjectTypes'])->name('admin.addProjectTypes');
-  });
-  
-  Route::prefix('edit')->group(function () {
-    Route::middleware('auth')->post('/projects', [AdminController::class, 'editProjects'])->name('admin.editProjects');
-    Route::middleware('auth')->post('/technologies', [AdminController::class, 'editTechnologies'])->name('admin.editTechnologies');
-    Route::middleware('auth')->post('/projecttypes', [AdminController::class, 'editProjectTypes'])->name('admin.editProjectTypes');
-  });
-});
-
 Route::get('/instagram', function(){
   return redirect()->away('https://instagram.com/vallnxs.gvr');
 })->name('instagram');
