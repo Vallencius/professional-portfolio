@@ -36,5 +36,13 @@ Route::middleware('auth')->group(function () {
         Route::post('/projects', [AdminController::class, 'editProjects'])->name('admin.editProjects');
         Route::post('/technologies', [AdminController::class, 'editTechnologies'])->name('admin.editTechnologies');
         Route::post('/projecttypes', [AdminController::class, 'editProjectTypes'])->name('admin.editProjectTypes');
+        Route::post('/projectimages', [AdminController::class, 'editProjectImages'])->name('admin.editProjectImages');
+    });
+
+    Route::prefix('delete')->group(function () {
+        Route::get('/projects/{id}', [AdminController::class, 'deleteProjects'])->name('admin.deleteProjects');
+        Route::get('/technologies/{id}', [AdminController::class, 'deleteTechnologies'])->name('admin.deleteTechnologies');
+        Route::get('/projecttypes/{id}', [AdminController::class, 'deleteProjectTypes'])->name('admin.deleteProjectTypes');
+        Route::get('/projectimages/{id}', [AdminController::class, 'deleteProjectImages'])->name('admin.deleteProjectImages');
     });
 });

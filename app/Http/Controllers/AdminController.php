@@ -83,7 +83,7 @@ class AdminController extends Controller
 
             ProjectImages::create([
                 'id_project' => $project->id,
-                'name' => $originalName,
+                'name' => 'Logo',
                 'image' => $request->get('Slug') . '/' . $originalName,
             ]);
             
@@ -160,5 +160,58 @@ class AdminController extends Controller
     public function editProjectTypes(ProjectTypeRequest $request)
     {
         return ["EDIT TYPE", $request->all()];
+    }
+
+    public function editProjectImages(ProjectImagesRequest $request)
+    {
+        return ["EDIT IMAGES", $request->all()];
+    }
+    
+    public function deleteProjects($id)
+    {
+        try {
+            $service = new BaseApiService();
+            $project = Projects::where('id', $id)->delete();
+                
+            return $service->success('Project Deleted!');
+        } catch (\Exception $e) {
+            return $service->error($e);
+        }
+    }
+
+    public function deleteTechnologies($id)
+    {
+        try {
+            $service = new BaseApiService();
+            $project = Technology::where('id', $id)->delete();
+                
+            return $service->success('Technology Deleted!');
+        } catch (\Exception $e) {
+            return $service->error($e);
+        }
+    }
+
+    public function deleteProjectTypes($id)
+    {
+        try {
+            $service = new BaseApiService();
+            $project = ProjectType::where('id', $id)->delete();
+                
+            return $service->success('Project Type Deleted!');
+        } catch (\Exception $e) {
+            return $service->error($e);
+        }
+    }
+
+    public function deleteProjectImages($id)
+    {
+        try {
+            $service = new BaseApiService();
+            $project = ProjectImages::where('id', $id)->delete();
+                
+            return $service->success('Image Deleted!');
+        } catch (\Exception $e) {
+            return $service->error($e);
+        }
     }
 }

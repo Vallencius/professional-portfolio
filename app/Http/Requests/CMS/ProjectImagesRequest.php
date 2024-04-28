@@ -10,8 +10,8 @@ class ProjectImagesRequest extends FormRequest
     {
         return [
             'IDProject' => ['required'],
-            'Name' => ['required', 'unique:project_images,name', 'string'],
-            'Image' => ['sometimes', 'file'],
+            'Name' => ['required', 'string'],
+            'Image' => ['sometimes'],
         ];
     }
 }

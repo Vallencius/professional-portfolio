@@ -19,10 +19,10 @@ export function DataTable(props) {
     const propsData = providerData.props; 
 
     const [data, setData] = useState(() => {
-        let url = '/admin/get/' + props.type;
+        let url = `/admin/get/${props.type}`;
         
         if (props.type === 'projectimages') {
-            url += ('/' + providerData.idProject.id);
+            url += `/${providerData.idProject.id}`;
         }
 
         process(url)
@@ -55,8 +55,19 @@ export function DataTable(props) {
         }
     }
 
-    function deleteImage() {
-        console.log("delete");
+    function deleteRow(id, type) {
+        let url = `/admin/delete/${type}/${id}`;
+        axios.get(url)
+        .then(response => {
+            let url = `/admin/get/${props.type}`;
+            if (props.type === 'projectimages') {
+                url += `/${providerData.idProject.id}`;
+            }
+            process(url)
+        })
+        .catch(error => {
+            console.log(error.message);
+        });
     }
 
     return (
@@ -189,6 +200,11 @@ export function DataTable(props) {
                                                                             <PhotoIcon className="h-4 w-4 m-auto" />
                                                                         </IconButton>
                                                                     </Tooltip>
+                                                                    <Tooltip content="Delete Content">
+                                                                        <IconButton variant="text" className="flex" onClick={() => {deleteRow( id, props.type )}}>
+                                                                            <TrashIcon className="h-4 w-4 m-auto" />
+                                                                        </IconButton>
+                                                                    </Tooltip>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -220,11 +236,18 @@ export function DataTable(props) {
                                                             </div>
                                                         </td>
                                                         <td className={classes}>
-                                                            <Tooltip content="Edit User">
-                                                                <IconButton variant="text" className="flex" onClick={() => {setEditForm({ id, image, name })}}>
-                                                                    <PencilIcon className="h-4 w-4 m-auto" />
-                                                                </IconButton>
-                                                            </Tooltip>
+                                                            <div className="flex flex-row">
+                                                                <Tooltip content="Edit User">
+                                                                    <IconButton variant="text" className="flex" onClick={() => {setEditForm({ id, image, name })}}>
+                                                                        <PencilIcon className="h-4 w-4 m-auto" />
+                                                                    </IconButton>
+                                                                </Tooltip>
+                                                                <Tooltip content="Delete Content">
+                                                                    <IconButton variant="text" className="flex" onClick={() => {deleteRow( id, props.type )}}>
+                                                                        <TrashIcon className="h-4 w-4 m-auto" />
+                                                                    </IconButton>
+                                                                </Tooltip>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                     );
@@ -250,11 +273,18 @@ export function DataTable(props) {
                                                             </div>
                                                         </td>
                                                         <td className={classes}>
-                                                            <Tooltip content="Edit User">
-                                                                <IconButton variant="text" className="flex" onClick={() => {setEditForm({ id, name })}}>
-                                                                    <PencilIcon className="h-4 w-4 m-auto" />
-                                                                </IconButton>
-                                                            </Tooltip>
+                                                            <div className="flex flex-row">
+                                                                <Tooltip content="Edit User">
+                                                                    <IconButton variant="text" className="flex" onClick={() => {setEditForm({ id, name })}}>
+                                                                        <PencilIcon className="h-4 w-4 m-auto" />
+                                                                    </IconButton>
+                                                                </Tooltip>
+                                                                <Tooltip content="Delete Content">
+                                                                    <IconButton variant="text" className="flex" onClick={() => {deleteRow( id, props.type )}}>
+                                                                        <TrashIcon className="h-4 w-4 m-auto" />
+                                                                    </IconButton>
+                                                                </Tooltip>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                     );
@@ -292,7 +322,7 @@ export function DataTable(props) {
                                                                     </IconButton>
                                                                 </Tooltip>
                                                                 <Tooltip content="Delete Content">
-                                                                    <IconButton variant="text" className="flex" onClick={() => {deleteImage()}}>
+                                                                    <IconButton variant="text" className="flex" onClick={() => {deleteRow( id, props.type )}}>
                                                                         <TrashIcon className="h-4 w-4 m-auto" />
                                                                     </IconButton>
                                                                 </Tooltip>
@@ -328,11 +358,35 @@ export function DataTable(props) {
                         </Card>
                         {
                             addForm && 
-                            <Form type="add" category={categoryMapping(props.type)} head={props.head} closeForm={() => setAddForm(false)} refreshPage={() => process('/admin/get/' + props.type + '/' + props.idProject)} editData={null} idProject={props.idProject ?? null}/>
+                            <Form 
+                                type="add" 
+                                category={categoryMapping(props.type)} 
+                                head={props.head} 
+                                closeForm={() => setAddForm(false)} 
+                                refreshPage={() => {
+                                    let url = `/admin/get/${props.type}`;
+                                    
+                                    if (props.type === 'projectimages') {
+                                        url += `/${props.idProject}`;
+                                    }
+
+                                    process(url)
+                                }} 
+                                editData={null} 
+                                idProject={props.idProject ?? null}
+                            />
                         }
                         {
                             editForm && 
-                            <Form type="edit" category={categoryMapping(props.type)} head={props.head} closeForm={() => setEditForm(null)} refreshPage={() => process('/admin/get/' + props.type)} editData={editForm} idProject={props.idProject ?? null}/>
+                            <Form 
+                                type="edit" 
+                                category={categoryMapping(props.type)} 
+                                head={props.head} 
+                                closeForm={() => setEditForm(null)} 
+                                refreshPage={() => process(`/admin/get/${props.type}`)} 
+                                editData={editForm} 
+                                idProject={props.idProject ?? null}
+                            />
                         }
                     </>
                 )
