@@ -102,12 +102,12 @@ class AdminController extends Controller
             $originalName = $file->getClientOriginalName();
             $filePath = $file->storeAs('logo', $originalName, 'public');
         
-            $projectType = Technology::create([
+            $technology = Technology::create([
                 'name' => $request->get('Name'),
                 'image' => $originalName
             ]);
             
-            return $service->success('Project Type Added!', [$projectType]);
+            return $service->success('Project Type Added!', [$technology]);
         }
         
         return $service->error('Project Type Logo Invalid!');
@@ -149,17 +149,84 @@ class AdminController extends Controller
     
     public function editProjects(Request $request)
     {
-        return ["EDIT PROJECT", $request->all()];
+        try {
+            $technologies = explode(',', $request->get('Technologies'));
+            $service = new BaseApiService();
+            $project = Projects::where('id', $request->get('id'))->first();
+            $file = $request->file('Logo');
+
+            if ($request->hasFile('Logo') && $request->file('Logo')->isValid()) {
+                $originalName = $file->getClientOriginalName();
+                $filePath = $file->storeAs('projects/' . $request->get('Slug'), $originalName, 'public');
+
+                ProjectImages::where([
+                    'id_project' => $project->id,
+                    'name' => 'Logo',
+                ])->update([
+                    'image' => $request->get('Slug') . '/' . $originalName,
+                ]);
+            }
+
+            $project->title = $request->get('Title');
+            $project->description = $request->get('Description');
+            $project->slug = $request->get('Slug');
+            $project->link = $request->get('Link');
+            $project->type_id = $request->get('Type');
+            $project->save();
+
+            ProjectTechnology::where([
+                'id_project' => $project->id
+            ])->delete();
+
+            foreach ($technologies as $technology) {
+                ProjectTechnology::create([
+                    'id_project' => $project->id,
+                    'id_technology' => $technology
+                ]);
+            }
+            
+            return $service->success('Project Edited!', [$project]);
+        } catch (\Exception $e) {
+            return $service->error($e->getMessage());
+        }
     }
 
     public function editTechnologies(Request $request)
     {
-        return ["EDIT TECH", $request->all()];
+        try {
+            $service = new BaseApiService();
+            $technology = Technology::where('id', $request->get('id'))->first();
+            $file = $request->file('Logo');
+
+            if ($request->hasFile('Logo') && $request->file('Logo')->isValid()) {
+                $originalName = $file->getClientOriginalName();
+                $filePath = $file->storeAs('logo', $originalName, 'public');
+            
+                $technology->image = $originalName;
+                $technology->save();
+            }
+            
+            $technology->name = $request->get('Name');
+            $technology->save();
+            
+            return $service->success('Project Type Edited!', [$technology]);
+        } catch (\Exception $e) {
+            return $service->error($e->getMessage());
+        }
     }
 
     public function editProjectTypes(ProjectTypeRequest $request)
     {
-        return ["EDIT TYPE", $request->all()];
+        try {
+            $service = new BaseApiService();
+            $projectType = ProjectType::where('id', $request->get('id'))->update([
+                'Name' => $request->get('Name')
+            ]);
+            
+            return $service->success('Project Type Edited!', [$projectType]);
+        } catch (\Exception $e) {
+            return $service->error($e->getMessage());
+        }
     }
 
     public function editProjectImages(ProjectImagesRequest $request)

@@ -54,6 +54,9 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
 
         const formData = new FormData();
 
+        if (editData && editData.id) {
+            formData.append('id', editData.id);
+        }
         if (data.Name) {
             formData.append('Name', data.Name);
         }
@@ -128,7 +131,7 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
                                                         {name}
                                                     </Typography>
                                                     <div className="flex flex-col">
-                                                        {projectTypes && projectTypes.map(({name}, index) => {
+                                                        {projectTypes && projectTypes.map(({id, name}, index) => {
                                                             return (
                                                                 <>
                                                                     {
@@ -136,7 +139,7 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
                                                                         <Radio 
                                                                             name="type" 
                                                                             label={name}
-                                                                            value={index + 1}
+                                                                            value={id}
                                                                             {...register("Type")}
                                                                             defaultChecked
                                                                         />
@@ -146,7 +149,7 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
                                                                         <Radio 
                                                                             name="type" 
                                                                             label={name}
-                                                                            value={index + 1}
+                                                                            value={id}
                                                                             {...register("Type")}
                                                                         />
                                                                     }
@@ -167,7 +170,7 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
                                                         {name}
                                                     </Typography>
                                                     <div className="flex flex-col">
-                                                        {tech && tech.map(({name}, index) => {
+                                                        {tech && tech.map(({id, name}, index) => {
                                                             return (
                                                                 <>
                                                                     {
@@ -175,8 +178,9 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
                                                                         <Checkbox 
                                                                             name="type" 
                                                                             label={name}
-                                                                            value={index + 1}
-                                                                            defaultChecked 
+                                                                            value={id}
+                                                                            defaultChecked                                                                           
+                                                                            {...register("Technologies")} 
                                                                         />
                                                                     }
                                                                     {
@@ -184,7 +188,7 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
                                                                         <Checkbox 
                                                                             name="type" 
                                                                             label={name}  
-                                                                            value={index + 1}                                                                          
+                                                                            value={id}                                                                          
                                                                             {...register("Technologies")} 
                                                                         />
                                                                     }
@@ -247,7 +251,7 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
                                                                 className: "before:content-none after:content-none",
                                                             }}
                                                             placeholder={editData['description']}
-                                                            {...register(name)}
+                                                            {...register(name, { value: editData['description'] })}
                                                         />
                                                     }
                                                     {
@@ -282,7 +286,7 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
                                                                 className: "before:content-none after:content-none",
                                                             }}
                                                             placeholder={editData[name.toLowerCase()]}
-                                                            {...register(name)}
+                                                            {...register(name, { value: editData[name.toLowerCase()] })}
                                                         />
                                                     }
                                                     {
