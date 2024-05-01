@@ -14,7 +14,3 @@ use App\Http\Controllers\LoginController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-
-Route::prefix('admin')->group(function () {
-    Route::post('/login', [LoginController::class, 'login'])->name('admin.login.check');
-});

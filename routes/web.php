@@ -4,6 +4,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\CommisionController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -26,6 +27,7 @@ Route::post('/projects', [ProjectsController::class, 'projectsFilter'])->name('p
 Route::get('/project/{slug}', [ProjectsController::class, 'projectDetail'])->name('projectDetail');
 Route::get('/commision', [MainController::class, 'commision'])->name('commision');
 Route::get('/contact', [MainController::class, 'contact'])->name('contact');
+Route::get('/info', [MainController::class, 'info'])->name('info');
 
 Route::get('/instagram', function(){
   return redirect()->away('https://instagram.com/vallnxs.gvr');
@@ -57,14 +59,6 @@ Route::get('/linkedin', function(){
 
 Route::post('/email', [MainController::class, 'email'])->name('email');
 Route::post('/order', [CommisionController::class, 'order'])->name('order');
-
-Route::prefix('admin')->group(function () {
-  Route::middleware('guest:sanctum')->get('/login', [LoginController::class, 'loginPage'])->name('admin.login');
-  Route::middleware('auth:sanctum')->get('/test', function(){
-    dd(Auth::user());
-  })->name('admin.test');
-  Route::middleware('auth:sanctum')->get('/logout', [LoginController::class, 'logout'])->name('admin.logout');
-});
 
 Route::any('{url}', function(){
   return redirect('/');

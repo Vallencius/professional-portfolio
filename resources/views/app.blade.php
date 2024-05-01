@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="Hi! I'm Vallencius Gavriel Alfredo Siswanto. You can call me Vallen. I'm a web developer. Welcome to My Protfolio!"/>
         <meta name="keywords" content="Vallen, Vallenc, Vallencius, Vallencius Gavriel, Vallencius Gavriel Alfredo Siswanto, Portfolio, Web Developer, Website Developer, Backend, Frontend"/>
-        <meta name="author" content="Vallencius Gavriel Alfredo Siswanto"/>
+        <meta name="author" content="Vallencius Gavriel"/>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 

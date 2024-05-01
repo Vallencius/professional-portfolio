@@ -61,11 +61,19 @@ export default function Anchor(props) {
           animate={dragVariant}
         >
           <motion.span className="link-item">
-            <Link href={props.url}>
-              <div className={props.type == 'footer' ? 'block py-2 pl-3 pr-4 text-gray-700 rounded hover:text-coffee-500' : "block py-2 pl-3 pr-4 text-gray-700 rounded md:bg-transparent hover:bg-gray-100 md:hover:bg-transparent md:hover:text-coffee-700 lg:hover:text-coffee-900 lg:text-coffee-200 md:p-0"} id={props.text}>
-                {props.text}
-              </div>
-            </Link>
+            {props.refresh == 'fullPage' ? 
+              <a href={props.url}>
+                <div className={props.type == 'footer' ? 'block py-2 pl-3 pr-4 text-gray-700 rounded hover:text-coffee-500' : "block py-2 pl-3 pr-4 text-gray-700 rounded md:bg-transparent hover:bg-gray-100 md:hover:bg-transparent md:hover:text-coffee-700 lg:hover:text-coffee-900 lg:text-coffee-200 md:p-0"} id={props.text}>
+                  {props.text}
+                </div>
+              </a>
+              :
+              <Link href={props.url}>
+                <div className={props.type == 'footer' ? 'block py-2 pl-3 pr-4 text-gray-700 rounded hover:text-coffee-500' : "block py-2 pl-3 pr-4 text-gray-700 rounded md:bg-transparent hover:bg-gray-100 md:hover:bg-transparent md:hover:text-coffee-700 lg:hover:text-coffee-900 lg:text-coffee-200 md:p-0"} id={props.text}>
+                  {props.text}
+                </div>
+              </Link>
+            }
           </motion.span>
         </motion.div>
       </motion.div>

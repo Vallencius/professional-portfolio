@@ -19,19 +19,18 @@ export default function Login(props) {
     formState: { errors }
   } = useForm();
 
-  const onSubmit = (data) => {
-    axios.post('/api/admin/login', data)
+  const onSubmit = async(data) => {
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = props.csrf;
+    axios.post('/admin/login/hit', data)
     .then(response => {
       if (response.data.status == STATUS_LOGIN_SUCCESS) {
-        const { token } = response.data;
-        document.cookie = `authToken=${token}; path=/;`;
+        window.location.href = 'admin/dashboard';
       } else if (response.data.status == STATUS_LOGIN_FAILED) {
         setErrorMessage(response.data.message);
       }
     })
     .catch(error => {
-      console.log("ERROR");
-      console.log(error)
+      setErrorMessage(error.message + ". Please refresh this page!");
     });
   };
   

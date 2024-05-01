@@ -23,9 +23,9 @@ class LoginController extends Controller
         $credentials = $request->all();
         
         if (Auth::attempt($credentials)) {
-            $user = Auth::user();
-            $token = $user->createToken('authToken')->plainTextToken;
-            return response()->json(['message' => 'Login berhasil!', 'status' => LoginService::STATUS_LOGIN_SUCCESS, 'token' => $token], 200);
+            $request->session()->regenerate();
+            
+            return response()->json(['message' => 'Login berhasil!', 'status' => LoginService::STATUS_LOGIN_SUCCESS], 200);
         }
 
         return response()->json(['message' => 'Login gagal, terdapat kesalahan pada email/password!', 'status' => LoginService::STATUS_LOGIN_FAILED], 200);
@@ -34,6 +34,7 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::guard('web')->logout();
-        return response()->json(['message' => 'Logged out successfully', 'status' => LoginService::STATUS_LOGIN_SUCCESS], 200);
+
+        return redirect('/');
     }
 }
