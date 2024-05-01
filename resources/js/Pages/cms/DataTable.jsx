@@ -321,11 +321,16 @@ export function DataTable(props) {
                                                                         <PencilIcon className="h-4 w-4 m-auto" />
                                                                     </IconButton>
                                                                 </Tooltip>
-                                                                <Tooltip content="Delete Content">
-                                                                    <IconButton variant="text" className="flex" onClick={() => {deleteRow( id, props.type )}}>
-                                                                        <TrashIcon className="h-4 w-4 m-auto" />
-                                                                    </IconButton>
-                                                                </Tooltip>
+                                                                {
+                                                                    name !== 'Logo' &&
+                                                                    (
+                                                                        <Tooltip content="Delete Content">
+                                                                            <IconButton variant="text" className="flex" onClick={() => {deleteRow( id, props.type )}}>
+                                                                                <TrashIcon className="h-4 w-4 m-auto" />
+                                                                            </IconButton>
+                                                                        </Tooltip>
+                                                                    )
+                                                                }
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -383,7 +388,15 @@ export function DataTable(props) {
                                 category={categoryMapping(props.type)} 
                                 head={props.head} 
                                 closeForm={() => setEditForm(null)} 
-                                refreshPage={() => process(`/admin/get/${props.type}`)} 
+                                refreshPage={() => {
+                                    let url = `/admin/get/${props.type}`;
+                                    
+                                    if (props.type === 'projectimages') {
+                                        url += `/${props.idProject}`;
+                                    }
+
+                                    process(url)
+                                }} 
                                 editData={editForm} 
                                 idProject={props.idProject ?? null}
                             />

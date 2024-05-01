@@ -231,7 +231,27 @@ class AdminController extends Controller
 
     public function editProjectImages(ProjectImagesRequest $request)
     {
-        return ["EDIT IMAGES", $request->all()];
+        try {
+            $service = new BaseApiService();
+            $project = Projects::where('id', $request->get('IDProject'))->first();
+            $projectImages = ProjectImages::where('id', $request->get('id'))->first();
+            $file = $request->file('Image');
+
+            if ($request->hasFile('Image') && $request->file('Image')->isValid()) {
+                $originalName = $file->getClientOriginalName();
+                $filePath = $file->storeAs('projects/' . $project->slug, $originalName, 'public');
+    
+                $projectImages->image = $project->slug . '/' . $originalName;
+                $projectImages->save();
+            }
+            
+            $projectImages->name = $request->get('Name');
+            $projectImages->save();
+            
+            return $service->success('Project Image Edited!', [$projectImages]);
+        } catch (\Exception $e) {
+            return $service->error($e->getMessage());
+        }
     }
     
     public function deleteProjects($id)
