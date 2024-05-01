@@ -24,3 +24,11 @@ Vallencius Gavriel's professional portfolio website. Specialize in web developme
 ### Version 1.1.0
 🌟 Main Changes:
 - Commision Page
+
+### Version 1.1.1
+✨ Minor Changes:
+- Optimize SEO
+
+### Version 1.2.0
+🌟 Main Changes:
+- Content Management System (CMS)
