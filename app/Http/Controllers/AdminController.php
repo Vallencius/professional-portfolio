@@ -14,6 +14,7 @@ use App\Models\ProjectImages;
 use App\Models\ProjectType;
 use Illuminate\Support\Facades\Auth;
 use Services\BaseApiService;
+use File;
 
 class AdminController extends Controller
 {
@@ -156,15 +157,20 @@ class AdminController extends Controller
             $file = $request->file('Logo');
 
             if ($request->hasFile('Logo') && $request->file('Logo')->isValid()) {
+                $projectImages = ProjectImages::where([
+                    'id_project' => $project->id,
+                    'name' => 'Logo',
+                ])->first();
+                $prevPath = public_path() . '/images/projects/' . $projectImages->image;
                 $originalName = $file->getClientOriginalName();
                 $filePath = $file->storeAs('projects/' . $request->get('Slug'), $originalName, 'public');
 
-                ProjectImages::where([
-                    'id_project' => $project->id,
-                    'name' => 'Logo',
-                ])->update([
-                    'image' => $request->get('Slug') . '/' . $originalName,
-                ]);
+                $projectImages->image = $request->get('Slug') . '/' . $originalName;
+                $projectImages->save();
+
+                if (file_exists($prevPath)) {
+                    File::delete($prevPath);
+                }
             }
 
             $project->title = $request->get('Title');
@@ -199,11 +205,16 @@ class AdminController extends Controller
             $file = $request->file('Logo');
 
             if ($request->hasFile('Logo') && $request->file('Logo')->isValid()) {
+                $prevPath = public_path() . '/images/logo/' . $technology->image;
                 $originalName = $file->getClientOriginalName();
                 $filePath = $file->storeAs('logo', $originalName, 'public');
             
                 $technology->image = $originalName;
                 $technology->save();
+
+                if (file_exists($prevPath)) {
+                    File::delete($prevPath);
+                }
             }
             
             $technology->name = $request->get('Name');
@@ -238,11 +249,16 @@ class AdminController extends Controller
             $file = $request->file('Image');
 
             if ($request->hasFile('Image') && $request->file('Image')->isValid()) {
+                $prevPath = public_path() . '/images/projects/' . $projectImages->image;
                 $originalName = $file->getClientOriginalName();
                 $filePath = $file->storeAs('projects/' . $project->slug, $originalName, 'public');
     
                 $projectImages->image = $project->slug . '/' . $originalName;
                 $projectImages->save();
+
+                if (file_exists($prevPath)) {
+                    File::delete($prevPath);
+                }
             }
             
             $projectImages->name = $request->get('Name');
