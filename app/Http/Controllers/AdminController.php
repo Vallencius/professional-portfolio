@@ -121,7 +121,7 @@ class AdminController extends Controller
 
         $service = new BaseApiService();
         
-        return $service->success('Project Type Added!', $projectType);
+        return $service->success('Project Type Added!', [$projectType]);
     }
 
     public function addProjectImages(ProjectImagesRequest $request)
@@ -258,7 +258,7 @@ class AdminController extends Controller
     {
         try {
             $service = new BaseApiService();
-            $project = Projects::where('id', $id)->delete();
+            Projects::where('id', $id)->delete();
                 
             return $service->success('Project Deleted!');
         } catch (\Exception $e) {
@@ -270,7 +270,7 @@ class AdminController extends Controller
     {
         try {
             $service = new BaseApiService();
-            $project = Technology::where('id', $id)->delete();
+            Technology::where('id', $id)->delete();
                 
             return $service->success('Technology Deleted!');
         } catch (\Exception $e) {
@@ -282,7 +282,7 @@ class AdminController extends Controller
     {
         try {
             $service = new BaseApiService();
-            $project = ProjectType::where('id', $id)->delete();
+            ProjectType::where('id', $id)->delete();
                 
             return $service->success('Project Type Deleted!');
         } catch (\Exception $e) {
@@ -294,7 +294,7 @@ class AdminController extends Controller
     {
         try {
             $service = new BaseApiService();
-            $project = ProjectImages::where('id', $id)->delete();
+            ProjectImages::where('id', $id)->delete();
                 
             return $service->success('Image Deleted!');
         } catch (\Exception $e) {
