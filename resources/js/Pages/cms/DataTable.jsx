@@ -375,6 +375,8 @@ export function DataTable(props) {
                                         url += `/${props.idProject}`;
                                     }
 
+                                    url += `?page=${data.current_page}`
+
                                     process(url)
                                 }} 
                                 editData={null} 
@@ -394,6 +396,8 @@ export function DataTable(props) {
                                     if (props.type === 'projectimages') {
                                         url += `/${props.idProject}`;
                                     }
+
+                                    url += `?page=${data.current_page}`
 
                                     process(url)
                                 }} 
