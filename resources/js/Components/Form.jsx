@@ -281,11 +281,15 @@ export default function Form({type, category, head, closeForm, refreshPage, edit
                                                     {
                                                         editData &&
                                                         <Input
-                                                            className=" !border-t-blue-gray-200 focus:!border-t-gray-900 rounded-lg"
+                                                            className={
+                                                                (name === 'Slug' && "cursor-not-allowed") ||
+                                                                " !border-t-blue-gray-200 focus:!border-t-gray-900 rounded-lg"
+                                                            }
                                                             labelProps={{
                                                                 className: "before:content-none after:content-none",
                                                             }}
                                                             placeholder={editData[name.toLowerCase()]}
+                                                            disabled={name === 'Slug'}
                                                             {...register(name, { value: editData[name.toLowerCase()] })}
                                                         />
                                                     }
