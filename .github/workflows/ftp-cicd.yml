@@ -1,0 +1,37 @@
+name: Deploy on Production Push
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  web-deploy:
+    name: Deploying
+    runs-on: ubuntu-latest
+    steps:
+      - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+        with:
+          php-version: '8.1.21'
+      - uses: actions/checkout@v2.3.2
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+      - name: Install Dependencies
+        run: composer update --ignore-platform-reqs
+      - name: Generate key
+        run: php artisan key:generate
+      - name: Directory Permissions
+        run: chmod -R 775 storage
+      - name: 📂 Sync Laravel Files
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{ secrets.SERVER }}
+          username: ${{ secrets.LARAVEL_USERNAME }}
+          password: ${{ secrets.LARAVEL_PASSWORD }}
+      - name: Build React
+        run: npm run build
+      - name: 📂 Sync React files
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{ secrets.SERVER }}
+          username: ${{ secrets.REACT_USERNAME }}
+          password: ${{ secrets.REACT_PASSWORD }}
+          local-dir: ./public
