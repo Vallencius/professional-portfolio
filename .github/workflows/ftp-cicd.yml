@@ -26,6 +26,8 @@ jobs:
           server: ${{ secrets.SERVER }}
           username: ${{ secrets.LARAVEL_USERNAME }}
           password: ${{ secrets.LARAVEL_PASSWORD }}
+      - name: Install NPM
+        run: npm install
       - name: Build React
         run: npm run build
       - name: 📂 Sync React files
