@@ -21,13 +21,13 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', [MainController::class, 'home'])->name('home');
-Route::get('/about', [MainController::class, 'about'])->name('about');
+// Route::get('/about', [MainController::class, 'about'])->name('about');
 Route::get('/projects', [ProjectsController::class, 'projects'])->name('projects');
 Route::post('/projects', [ProjectsController::class, 'projectsFilter'])->name('projects.filter');
 Route::get('/project/{slug}', [ProjectsController::class, 'projectDetail'])->name('projectDetail');
 Route::get('/commision', [MainController::class, 'commision'])->name('commision');
-Route::get('/contact', [MainController::class, 'contact'])->name('contact');
-Route::get('/info', [MainController::class, 'info'])->name('info');
+// Route::get('/contact', [MainController::class, 'contact'])->name('contact');
+// Route::get('/info', [MainController::class, 'info'])->name('info');
 
 Route::get('/instagram', function(){
   return redirect()->away('https://instagram.com/vallnxs.gvr');
