@@ -10,10 +10,11 @@ use App\Models\Technology;
 
 class ProjectsController extends Controller
 {
+  const PER_PAGE = 10;
 
   public function projects()
   {
-    $projects = Projects::all();
+    $projects = Projects::paginate(10);
     foreach($projects as $project){
         $project['images'] = $project->images;
         $project['technologies'] = $project->technologies;
@@ -71,9 +72,9 @@ class ProjectsController extends Controller
         $projects = Projects::whereIn('type_id', $filteredTypes);
       }
 
-      $projects = $projects->get();
+      $projects = $projects->paginate(self::PER_PAGE);
     } else {
-      $projects = Projects::All();
+      $projects = Projects::paginate(self::PER_PAGE);
     }
 
     foreach($projects as $project){

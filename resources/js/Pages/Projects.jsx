@@ -4,6 +4,7 @@ import Footer from '@/Components/Footer';
 import Navbar from '@/Components/Navbar';
 import { motion } from "framer-motion";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { ChevronRightIcon, ChevronLeftIcon, ChevronDoubleLeftIcon, ChevronDoubleRightIcon } from "@heroicons/react/24/solid";
 
 import Project from '@/Components/Project';
 
@@ -58,7 +59,6 @@ export default function Projects(props) {
     document.getElementById("types").value = JSON.stringify(props.projectTypes);
   }
 
-
   return (
     <>
       <Head title="Projects"/>
@@ -70,14 +70,45 @@ export default function Projects(props) {
         <div className="max-w-[1200px] mx-auto">
           <h1 className="text-center text-4xl text-coffee-900 font-bold my-8">My Projects</h1>
           <div className="mx-12">
-            <motion.div 
-              whileHover={{ scale: 1.1 }} 
-              whileTap={{ scale: 1 }} 
-              className="mb-8 w-fit hover:cursor-pointer bg-gradient-to-r from-blue-200 to-blue-sky-200 hover:bg-gradient-to-l hover:from-blue-200 hover:to-blue-sky-200 active:ring-4 active:outline-none active:ring-blue-200 rounded-full py-2 px-4"
-              onClick={() => toggleFilter()}
-            >
-              <img src={props.images+"/filter.svg"} className="h-4 inline mr-2"/>Filter
-            </motion.div>
+            <div className="flex flex-row items-center justify-between">
+              <motion.div 
+                whileHover={{ scale: 1.1 }} 
+                whileTap={{ scale: 1 }} 
+                className="my-8 w-fit hover:cursor-pointer bg-gradient-to-r from-blue-200 to-blue-sky-200 hover:bg-gradient-to-l hover:from-blue-200 hover:to-blue-sky-200 active:ring-4 active:outline-none active:ring-blue-200 rounded-full py-2 px-4"
+                onClick={() => toggleFilter()}
+              >
+                <img src={props.images+"/filter.svg"} className="h-4 inline mr-2"/>Filter
+              </motion.div>
+              <div className="flex flex-row items-center">
+                {
+                  props.projects.prev_page_url && 
+                  <a href={props.projects.first_page_url}>
+                    <ChevronDoubleLeftIcon className="h-8 w-8 m-auto bg-coffee-300 text-coffee-700 ml-2 p-1 rounded-full" />
+                  </a>
+                }
+                {
+                  props.projects.prev_page_url && 
+                  <a href={props.projects.prev_page_url}>
+                    <ChevronLeftIcon className="h-8 w-8 m-auto bg-coffee-300 text-coffee-700 ml-2 p-1 rounded-full" />
+                  </a>
+                }
+                <p>
+                  <b>Page {props.projects.current_page} of {props.projects.last_page}</b>
+                </p>
+                {
+                  props.projects.next_page_url && 
+                  <a href={props.projects.next_page_url}>
+                    <ChevronRightIcon className="h-8 w-8 m-auto bg-coffee-300 text-coffee-700 ml-2 p-1 rounded-full" />
+                  </a>
+                }
+                {
+                  props.projects.next_page_url && 
+                  <a href={props.projects.lst_page_url}>
+                    <ChevronDoubleRightIcon className="h-8 w-8 m-auto bg-coffee-300 text-coffee-700 ml-2 p-1 rounded-full" />
+                  </a>
+                }
+              </div>
+            </div>
             {showFilter && <motion.div
               className="my-4 flex flex-col lg:inline"
               initial={{ opacity: 0, y: 10 }}
@@ -155,13 +186,13 @@ export default function Projects(props) {
               <hr/>
             </motion.div>}
             <div className="w-full flex flex-col items-center justify-center divide-y-4 space-y-4">
-              {props.projects.map((project, i) => {
+              {props.projects.data.map((project, i) => {
                 return (
                   <Project project_info={project} logo={props.logo} image={props.project_images+"/"+project.images[0].image}/>
                 )
               })}
               {
-                props.projects?.length == 0 && <h1>No Data Found</h1>
+                props.projects.data?.length == 0 && <h1>No Data Found</h1>
               }
             </div>
           </div>
