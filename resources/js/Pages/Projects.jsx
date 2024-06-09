@@ -137,7 +137,7 @@ export default function Projects(props) {
                         (type.id % 4 === 1 && "from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 " || 
                         type.id % 4 === 2 && "from-blue-200 via-blue-300 to-purple-200 hover:bg-gradient-to-bl " ||
                         type.id % 4 === 3 && "from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl " ||
-                        type.id % 4 === 0 && "from-pink-300 to-purple-300 hover:bg-gradient-to-bl ")                      
+                        type.id % 4 === 0 && "from-pink-300 to-purple-300 hover:bg-gradient-to-bl ")
                         + (type.isFiltered ? "ring-4 ring-red-400 " : ' ')
                         + "my-2 hover:cursor-pointer inline mr-2 w-fit bg-gradient-to-r rounded-full py-2 px-4"
                     }
