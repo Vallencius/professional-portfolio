@@ -98,7 +98,7 @@ export default function Projects(props) {
                     <ChevronLeftIcon className="h-8 w-8 m-auto bg-coffee-300 text-coffee-700 ml-2 p-1 rounded-full" />
                   </motion.a>
                 }
-                <p>
+                <p className="ml-2">
                   <b>Page {props.projects.current_page} of {props.projects.last_page}</b>
                 </p>
                 {

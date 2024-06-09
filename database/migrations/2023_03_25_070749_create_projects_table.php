@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreignId('type_id');
             $table->string('slug');
             $table->string('link');
+            $table->integer('status');
             $table->timestamps();
         });
     }

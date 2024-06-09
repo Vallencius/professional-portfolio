@@ -1,3 +1,4 @@
+import { BeakerIcon, FaceFrownIcon, RocketLaunchIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -12,7 +13,29 @@ export default function Project(props) {
       href={"/project/"+props.project_info.slug} className="flex lg:odd:flex-row lg:even:flex-row-reverse flex-col w-full px-12 mt-4 items-center">
       <LazyLoadImage className="mx-4 z-0 h-36 rounded mt-4 object-cover" src={props.image} alt={props.project_info.title} />
       <div className="flex flex-col">
-        <h1 className="text-xl font-bold mt-6 text-center md:text-left">{props.project_info.title}</h1>
+        <div className="flex flex-row mt-6">
+          <h1 className="text-xl font-bold text-center md:text-left">{props.project_info.title}</h1>
+          {
+            props.project_info.status === 0 && 
+            <div className="flex flex-row">
+              <FaceFrownIcon className="ml-4 w-7 h-7 text-red-600 "/>
+              <h2 className="ml-2 text-red-700 my-auto"><b>Offline</b></h2>
+            </div>
+            ||
+            props.project_info.status === 1 && 
+            <div className="flex flex-row">
+              <RocketLaunchIcon className="ml-4 w-7 h-7 text-green-600 "/>
+              <h2 className="ml-2 text-green-700 my-auto"><b>Active</b></h2>
+            </div>
+            ||
+            props.project_info.status === 2 && 
+            <div className="flex flex-row">
+              <BeakerIcon className="ml-4 w-7 h-7 text-yellow-600 "/>
+              <h2 className="ml-2 text-yellow-700 my-auto"><b>Patch Outdated</b></h2>
+            </div>
+
+          }
+        </div>
         <motion.p 
           className="my-4 text-center mx-auto md:mx-0 lg:text-left"
           whileHover={{ x: 20 }}
