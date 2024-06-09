@@ -92,5 +92,15 @@ class TechnologySeeder extends Seeder
             'name' => 'Bootstrap',
             'image' => 'bootstrap.png',
         ]);
+        
+        Technology::create([
+            'name' => 'Python',
+            'image' => 'python.png',
+        ]);
+        
+        Technology::create([
+            'name' => 'Flask',
+            'image' => 'flask.png',
+        ]);
     }
 }

@@ -281,5 +281,29 @@ class ProjectTechnologySeeder extends Seeder
             'id_project' => 14,
             'id_technology' => 16
         ]);
+        ProjectTechnology::create([
+            'id_project' => 15,
+            'id_technology' => 3
+        ]);
+        ProjectTechnology::create([
+            'id_project' => 15,
+            'id_technology' => 4
+        ]);
+        ProjectTechnology::create([
+            'id_project' => 15,
+            'id_technology' => 5
+        ]);
+        ProjectTechnology::create([
+            'id_project' => 16,
+            'id_technology' => 4
+        ]);
+        ProjectTechnology::create([
+            'id_project' => 16,
+            'id_technology' => 17
+        ]);
+        ProjectTechnology::create([
+            'id_project' => 16,
+            'id_technology' => 18
+        ]);
     }
 }

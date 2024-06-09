@@ -129,5 +129,21 @@ class ProjectsSeeder extends Seeder
             'slug' => "commpress",
             'link' => "https://commpress.umn.ac.id"
         ]);
+
+        Projects::create([
+            'title' => 'U-TAPIS Kata Terikat',
+            'description' => "U-Tapis is a research project led by UMN's lecturer, Dr. Niknik M. Kuntarto, M.Hum. It is a developing program for spelling filter automation, especially in Bahasa Indonesia for journalistic purpose. Some rules in Bahasa Indonesia contain some unique rules, one of them is the rule of kata terikat. So, in this project, i manage to developed both machine learning and rule-based program using Python. This project is also presented in 1ST INTERNATIONAL CONFERENCE TRACK ON ARTIFICIAL INTELLIGENCE HORIZONS & SOCIETY (ICAIH2024)",
+            'type_id' => 4,
+            'slug' => 'utapis',
+            'link' => 'https://utapis.vallencius.com/'
+        ]);
+
+        Projects::create([
+            'title' => 'Interactive Multimedia Storytelling',
+            'description' => `This project is a collaboration project with UMN's Journalistic, Jennifer Carorine Gouw. The website contains Interactive Multimedia Storytelling with the theme of "Evaluating The Waste Transportation System Department Of Environmental Affairs City Of Tangerang". This website is being used as Jennifer's final assessment on Universitas Multimedia Nusantara. Waste transportation system in Tangerang region is a recuring problem. In this website, we can see how people see this issue from many angles.`,
+            'type_id' => 1,
+            'slug' => 'jennifer',
+            'link' => 'https://pengangkutsampah.vercel.app/'
+        ]);
     }
 }

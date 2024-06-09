@@ -24,5 +24,9 @@ class ProjectTypeSeeder extends Seeder
         ProjectType::create([
             'name' => 'Cross Platform Application'
         ]);
+
+        ProjectType::create([
+            'name' => 'Machine Learning'
+        ]);
     }
 }
