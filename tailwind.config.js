@@ -9,6 +9,12 @@ module.exports = {
         './resources/js/**/*.jsx',
     ],
 
+    safelist: [
+      {
+        pattern: /(?:hover:)?(from|via|to|bg-gradient)-(.*)/,
+      },
+    ],
+
     theme: {
         extend: {
             fontFamily: {

@@ -82,30 +82,42 @@ export default function Projects(props) {
               <div className="flex flex-row items-center">
                 {
                   props.projects.prev_page_url && 
-                  <a href={props.projects.first_page_url}>
+                  <motion.a
+                    whileHover={{ scale: 1.1 }} 
+                    whileTap={{ scale: 1 }} 
+                    href={props.projects.first_page_url}>
                     <ChevronDoubleLeftIcon className="h-8 w-8 m-auto bg-coffee-300 text-coffee-700 ml-2 p-1 rounded-full" />
-                  </a>
+                  </motion.a>
                 }
                 {
                   props.projects.prev_page_url && 
-                  <a href={props.projects.prev_page_url}>
+                  <motion.a
+                    whileHover={{ scale: 1.1 }} 
+                    whileTap={{ scale: 1 }} 
+                    href={props.projects.prev_page_url}>
                     <ChevronLeftIcon className="h-8 w-8 m-auto bg-coffee-300 text-coffee-700 ml-2 p-1 rounded-full" />
-                  </a>
+                  </motion.a>
                 }
                 <p>
                   <b>Page {props.projects.current_page} of {props.projects.last_page}</b>
                 </p>
                 {
                   props.projects.next_page_url && 
-                  <a href={props.projects.next_page_url}>
+                  <motion.a
+                    whileHover={{ scale: 1.1 }} 
+                    whileTap={{ scale: 1 }} 
+                    href={props.projects.next_page_url}>
                     <ChevronRightIcon className="h-8 w-8 m-auto bg-coffee-300 text-coffee-700 ml-2 p-1 rounded-full" />
-                  </a>
+                  </motion.a>
                 }
                 {
                   props.projects.next_page_url && 
-                  <a href={props.projects.lst_page_url}>
+                  <motion.a
+                    whileHover={{ scale: 1.1 }} 
+                    whileTap={{ scale: 1 }} 
+                    href={props.projects.lst_page_url}>
                     <ChevronDoubleRightIcon className="h-8 w-8 m-auto bg-coffee-300 text-coffee-700 ml-2 p-1 rounded-full" />
-                  </a>
+                  </motion.a>
                 }
               </div>
             </div>
@@ -122,14 +134,12 @@ export default function Projects(props) {
                     whileHover={{ scale: 1.1 }} 
                     whileTap={{ scale: 1 }} 
                     className={
-                      type.isFiltered ?
-                      (type.name == "Website" && "my-2 ring-4 ring-red-400 hover:cursor-pointer inline mr-2 w-fit bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 rounded-full py-2 px-4" || 
-                      type.name == "Cross Platform Application" && "my-2 ring-4 ring-red-400 hover:cursor-pointer inline mr-2 w-fit bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl rounded-full py-2 px-4" ||
-                      type.name == "Android Application" && "my-2 ring-4 ring-red-400 hover:cursor-pointer inline mr-2  w-fit bg-gradient-to-r from-blue-200 via-blue-300 to-purple-200 hover:bg-gradient-to-bl rounded-full py-2 px-4")
-                      :
-                      (type.name == "Website" && "my-2 hover:cursor-pointer inline mr-2 w-fit bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 rounded-full py-2 px-4" || 
-                      type.name == "Cross Platform Application" && "my-2 hover:cursor-pointer inline mr-2 w-fit bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl rounded-full py-2 px-4" ||
-                      type.name == "Android Application" && "my-2 hover:cursor-pointer inline mr-2  w-fit bg-gradient-to-r from-blue-200 via-blue-300 to-purple-200 hover:bg-gradient-to-bl rounded-full py-2 px-4")
+                        (type.id % 4 === 1 && "from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 " || 
+                        type.id % 4 === 2 && "from-blue-200 via-blue-300 to-purple-200 hover:bg-gradient-to-bl " ||
+                        type.id % 4 === 3 && "from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl " ||
+                        type.id % 4 === 0 && "from-pink-300 to-purple-300 hover:bg-gradient-to-bl ")                      
+                        + (type.isFiltered ? "ring-4 ring-red-400 " : ' ')
+                        + "my-2 hover:cursor-pointer inline mr-2 w-fit bg-gradient-to-r rounded-full py-2 px-4"
                     }
                     onClick={() => toggleFilterTypeDetail(type.name)}
                     id = {type.name}
@@ -148,10 +158,12 @@ export default function Projects(props) {
                         whileHover={{ scale: 1.3 }} 
                         whileTap={{ scale: 1 }} 
                         className={
-                          technology.isFiltered ? 
-                          "ring-4 ring-red-400 h-10 w-10 mr-2 rounded-full bg-coffee-200 hover:cursor-pointer"
+                          (technology.isFiltered ? 
+                          "ring-4 ring-red-400 "
                           :
-                          "h-10 w-10 mr-2 rounded-full bg-coffee-200 hover:cursor-pointer"
+                          " ")
+
+                          + "h-10 w-10 mr-2 rounded-full bg-coffee-200 hover:cursor-pointer "
                         }
                         onClick={() => toggleFilterDetail(technology.name)}
                         id = {technology.name}
@@ -194,6 +206,49 @@ export default function Projects(props) {
               {
                 props.projects.data?.length == 0 && <h1>No Data Found</h1>
               }
+            </div>
+            <div className="flex flex-row justify-end mt-4">
+              <div className="flex flex-row items-center">
+                {
+                  props.projects.prev_page_url && 
+                  <motion.a
+                    whileHover={{ scale: 1.1 }} 
+                    whileTap={{ scale: 1 }} 
+                    href={props.projects.first_page_url}>
+                    <ChevronDoubleLeftIcon className="h-8 w-8 m-auto bg-coffee-300 text-coffee-700 ml-2 p-1 rounded-full" />
+                  </motion.a>
+                }
+                {
+                  props.projects.prev_page_url && 
+                  <motion.a
+                    whileHover={{ scale: 1.1 }} 
+                    whileTap={{ scale: 1 }} 
+                    href={props.projects.prev_page_url}>
+                    <ChevronLeftIcon className="h-8 w-8 m-auto bg-coffee-300 text-coffee-700 ml-2 p-1 rounded-full" />
+                  </motion.a>
+                }
+                <p>
+                  <b>Page {props.projects.current_page} of {props.projects.last_page}</b>
+                </p>
+                {
+                  props.projects.next_page_url && 
+                  <motion.a
+                    whileHover={{ scale: 1.1 }} 
+                    whileTap={{ scale: 1 }} 
+                    href={props.projects.next_page_url}>
+                    <ChevronRightIcon className="h-8 w-8 m-auto bg-coffee-300 text-coffee-700 ml-2 p-1 rounded-full" />
+                  </motion.a>
+                }
+                {
+                  props.projects.next_page_url && 
+                  <motion.a
+                    whileHover={{ scale: 1.1 }} 
+                    whileTap={{ scale: 1 }} 
+                    href={props.projects.lst_page_url}>
+                    <ChevronDoubleRightIcon className="h-8 w-8 m-auto bg-coffee-300 text-coffee-700 ml-2 p-1 rounded-full" />
+                  </motion.a>
+                }
+              </div>
             </div>
           </div>
         </div>
