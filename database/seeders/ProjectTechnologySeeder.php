@@ -299,6 +299,10 @@ class ProjectTechnologySeeder extends Seeder
         ]);
         ProjectTechnology::create([
             'id_project' => 16,
+            'id_technology' => 9
+        ]);
+        ProjectTechnology::create([
+            'id_project' => 16,
             'id_technology' => 17
         ]);
         ProjectTechnology::create([

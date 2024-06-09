@@ -693,5 +693,15 @@ class ProjectImagesSeeder extends Seeder
             'name' => 'Admin Page',
             'image' => 'Commpress/5.png'
         ]);
+        ProjectImages::create([
+            'id_project' => 15,
+            'name' => 'Logo',
+            'image' => 'jennifer/logo.png'
+        ]);
+        ProjectImages::create([
+            'id_project' => 16,
+            'name' => 'Logo',
+            'image' => 'utapis/logo.png'
+        ]);
     }
 }
